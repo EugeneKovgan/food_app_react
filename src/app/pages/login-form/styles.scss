@@ -11,7 +11,7 @@
       font-weight: 400;
       font-size: 22px;
       line-height: 28px;
-      color: $base-black-grey;
+      color: $base-grey-color;
     }
 
     &__input {
@@ -34,7 +34,7 @@
 
   &__btn-block {
     & button {
-      background: $base-black-yellow;
+      background: $base-yellow-color;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
       color: $base-black-color;
