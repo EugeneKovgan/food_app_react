@@ -69,4 +69,8 @@
   & :where(.css-dev-only-do-not-override-1vtf12y).ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper {
     border: none;
   }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {
+    color: $base-text-color;
+  }
 }

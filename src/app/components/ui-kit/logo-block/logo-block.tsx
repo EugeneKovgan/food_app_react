@@ -8,8 +8,10 @@ export const LogoBlock: React.FC = () => {
   return (
     <div className="logo-block">
       <img src={logo} alt="logo" />
-      <div className="logo-block__title">Corner Food</div>
-      <div className="logo-block__description">Delivery App </div>
+      <div className="logo-block__description">
+        <div className="logo-block__description__title">Corner Food</div>
+        <div className="logo-block__description__text">Delivery App </div>
+      </div>
       <Radio.Group
         className="logo-block__btn-block"
         defaultValue="a"
