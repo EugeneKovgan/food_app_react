@@ -26,10 +26,13 @@
     }
   }
 
+
   &__btn-block {
-    & button {
+    padding: 0 20px 0 20px;
+
+    &__btn {
       background: $base-yellow-color;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: $base-shadow-btn;
       border-radius: 15px;
       color: $base-black-color;
       width: 100%;
@@ -37,6 +40,11 @@
       margin-top: 2rem;
       font-size: 16px;
       line-height: 28px;
+      border: none;
+
+      &:active {
+        box-shadow: $base-shadow-active-btn;
+      }
     }
   }
 

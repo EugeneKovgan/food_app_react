@@ -9,7 +9,7 @@
   padding: 20px 20px 0 20px;
   color: $base-grey-color;
   background: $base-white-color;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: $base-shadow-card;
   border-bottom-right-radius: 40px;
   border-bottom-left-radius: 40px;
 
@@ -35,8 +35,6 @@
       line-height: 28px;
     }
   }
-
-
 
   &__btn-block {
     display: flex;

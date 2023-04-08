@@ -76,9 +76,12 @@ export const LoginForm: React.FC = () => {
         </div>
 
         <Form.Item className="login-form__btn-block">
-          <Button type="primary" htmlType="submit">
+          {/* <Button type="primary" htmlType="submit">
+            Signup
+          </Button> */}
+          <button type="submit" className="login-form__btn-block__btn">
             Login
-          </Button>
+          </button>
         </Form.Item>
       </Form>
     </div>

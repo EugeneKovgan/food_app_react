@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 
 import './styles.scss';
 
@@ -114,9 +114,12 @@ export const RegistrationForm: React.FC = () => {
         </div>
 
         <Form.Item className="registration-form__btn-block">
-          <Button type="primary" htmlType="submit">
+          <button type="submit" className="login-form__btn-block__btn">
             Signup
-          </Button>
+          </button>
+          {/* <Button type="primary" htmlType="submit">
+            Signup
+          </Button> */}
         </Form.Item>
       </Form>
     </div>

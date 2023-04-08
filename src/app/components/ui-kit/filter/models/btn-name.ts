@@ -1,5 +1,5 @@
 export const BTN_NAMES: any[] = [
-  { label: 'Fast_food', value: 'fastFood' },
+  { label: 'Fast food', value: 'fastFood' },
   { label: 'Vegetarian', value: 'vegetarian' },
   { label: 'Drink', value: 'drink' },
   { label: 'Spicy', value: 'spicy' },

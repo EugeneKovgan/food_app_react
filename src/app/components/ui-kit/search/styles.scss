@@ -10,7 +10,7 @@
 
   &__input {
     border-radius: 20px;
-    color: #104E5B;
+    color: $base-text-color;
     border: none;
   }
 
@@ -21,9 +21,13 @@
     width: 40px;
     height: 40px;
     background: $base-yellow-color;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: $base-shadow-btn;
     border-radius: 50%;
     border: 1px solid $base-yellow-color;
+
+    &:active {
+      box-shadow: $base-shadow-active-btn;
+    }
   }
 
   & :where(.css-dev-only-do-not-override-1vtf12y).ant-input-affix-wrapper>input.ant-input {
