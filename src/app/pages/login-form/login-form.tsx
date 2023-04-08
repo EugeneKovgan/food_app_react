@@ -35,50 +35,52 @@ export const LoginForm: React.FC = () => {
   };
 
   return (
-    <Form
-      className="login-form"
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <div className="login-form__input-block">
-        <Form.Item
-          className="login-form__input-block__item"
-          label="Email Address"
-          name="email"
-          rules={[
-            { required: true, message: 'Please input your email address!' },
-          ]}
-        >
-          <Input
-            onChange={onEmailChange}
-            className="login-form__input-block__item__input"
-          />
-        </Form.Item>
-        <Form.Item
-          className="login-form__input-block__item"
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-        >
-          <Input.Password
-            onChange={onPasswordChange}
-            className="login-form__input-block__item__input"
-          />
-        </Form.Item>
+    <div className="container">
+      <Form
+        className="login-form"
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <div className="login-form__input-block">
+          <Form.Item
+            className="login-form__input-block__item"
+            label="Email Address"
+            name="email"
+            rules={[
+              { required: true, message: 'Please input your email address!' },
+            ]}
+          >
+            <Input
+              onChange={onEmailChange}
+              className="login-form__input-block__item__input"
+            />
+          </Form.Item>
+          <Form.Item
+            className="login-form__input-block__item"
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input.Password
+              onChange={onPasswordChange}
+              className="login-form__input-block__item__input"
+            />
+          </Form.Item>
 
-        <Button className="login-form__input-block__link" type="link" block>
-          Forgot Password?
-        </Button>
-      </div>
+          <Button className="login-form__input-block__link" type="link" block>
+            Forgot Password?
+          </Button>
+        </div>
 
-      <Form.Item className="login-form__btn-block">
-        <Button type="primary" htmlType="submit">
-          Login
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item className="login-form__btn-block">
+          <Button type="primary" htmlType="submit">
+            Login
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };

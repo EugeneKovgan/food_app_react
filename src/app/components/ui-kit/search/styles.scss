@@ -1,0 +1,32 @@
+@import 'src/styles/theme/index.scss';
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+
+  &__input {
+    border-radius: 20px;
+    color: #104E5B;
+    border: none;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: $base-yellow-color;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    border: 1px solid $base-yellow-color;
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-input-affix-wrapper>input.ant-input {
+    color: $base-text-color;
+  }
+}

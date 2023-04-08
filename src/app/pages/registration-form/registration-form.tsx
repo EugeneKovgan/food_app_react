@@ -51,70 +51,74 @@ export const RegistrationForm: React.FC = () => {
   };
 
   return (
-    <Form
-      className="registration-form"
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <div className="registration-form__input-block">
-        <Form.Item
-          className="registration-form__input-block__item"
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
-        >
-          <Input
-            onChange={onUsernameChange}
-            className="registration-form__input-block__item__input"
-          />
-        </Form.Item>
+    <div className="container">
+      <Form
+        className="registration-form"
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <div className="registration-form__input-block">
+          <Form.Item
+            className="registration-form__input-block__item"
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input
+              onChange={onUsernameChange}
+              className="registration-form__input-block__item__input"
+            />
+          </Form.Item>
 
-        <Form.Item
-          className="registration-form__input-block__item"
-          label="Email Address"
-          name="email"
-          rules={[
-            { required: true, message: 'Please input your email address!' },
-          ]}
-        >
-          <Input
-            onChange={onEmailChange}
-            className="registration-form__input-block__item__input"
-          />
-        </Form.Item>
-        <Form.Item
-          className="registration-form__input-block__item"
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-        >
-          <Input.Password
-            onChange={onPasswordChange}
-            className="registration-form__input-block__item__input"
-          />
-        </Form.Item>
+          <Form.Item
+            className="registration-form__input-block__item"
+            label="Email Address"
+            name="email"
+            rules={[
+              { required: true, message: 'Please input your email address!' },
+            ]}
+          >
+            <Input
+              onChange={onEmailChange}
+              className="registration-form__input-block__item__input"
+            />
+          </Form.Item>
+          <Form.Item
+            className="registration-form__input-block__item"
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input.Password
+              onChange={onPasswordChange}
+              className="registration-form__input-block__item__input"
+            />
+          </Form.Item>
 
-        <Form.Item
-          className="registration-form__input-block__item"
-          label="Confirm Password"
-          name="confirmPassword"
-          rules={[{ required: true, message: 'Please confirm your password!' }]}
-        >
-          <Input.Password
-            onChange={onConfirmPasswordChange}
-            className="registration-form__input-block__item__input"
-          />
-        </Form.Item>
-      </div>
+          <Form.Item
+            className="registration-form__input-block__item"
+            label="Confirm Password"
+            name="confirmPassword"
+            rules={[
+              { required: true, message: 'Please confirm your password!' },
+            ]}
+          >
+            <Input.Password
+              onChange={onConfirmPasswordChange}
+              className="registration-form__input-block__item__input"
+            />
+          </Form.Item>
+        </div>
 
-      <Form.Item className="registration-form__btn-block">
-        <Button type="primary" htmlType="submit">
-          Signup
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item className="registration-form__btn-block">
+          <Button type="primary" htmlType="submit">
+            Signup
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
