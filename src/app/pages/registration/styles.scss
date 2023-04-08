@@ -1,21 +1,7 @@
-.registration {
-  // &__card {
-  //   width: 600px;
-
-  //   &__form {
-  //     max-width: 600px;
-
-  //     &__avatar:hover {
-  //       cursor: pointer;
-  //     }
-  //     &__avatar {
-  //       transition: all 0.2s ease-in-out;
-  //     }
-  //     &__avatar:active {
-  //       transform: scale(1.2);
-  //     }
-  //   }
-  // }
-
-
+.registration-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
 }

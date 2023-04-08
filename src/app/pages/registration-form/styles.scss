@@ -1,6 +1,6 @@
 @import 'src/styles/theme/index.scss';
 
-.login-form {
+.registration-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,13 +24,6 @@
         border-bottom: 1px solid $base-text-color;
         border-radius: 0;
       }
-    }
-
-    &__link {
-      text-align: end;
-      font-weight: 700;
-      font-size: 13px;
-      color: $base-text-color;
     }
   }
 
