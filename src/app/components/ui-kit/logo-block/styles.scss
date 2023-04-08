@@ -1,0 +1,97 @@
+@import 'src/styles/theme/index.scss';
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  padding: 20px 20px 0 20px;
+  color: $base-grey-color;
+  background: $base-white-color;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+
+  & img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    &__text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+
+
+
+  &__btn-block {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 8rem;
+      padding-bottom: 20px;
+      border: none;
+      border-bottom: 2px solid $base-white-color;
+
+      & span {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+      color: $base-black-color;
+      border-color: $base-white-color;
+      border-bottom: 2px solid $base-yellow-color;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover::before {
+      background-color: $base-white-color;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:first-child {
+      border-inline-start: none;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:first-child {
+      border-start-start-radius: 0px;
+      border-end-start-radius: 0px;
+    }
+
+    & .ant-radio-group-large :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
+      border-start-end-radius: 0px;
+      border-end-end-radius: 0px;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
+      border-start-end-radius: 0px;
+      border-end-end-radius: 0px;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+      background-color: $base-white-color;
+    }
+  }
+
+
+}
