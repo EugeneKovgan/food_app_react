@@ -4,3 +4,4 @@ export * from './search';
 export * from './filter';
 export * from './loader';
 export * from './free-delivery';
+export * from './food-card';
