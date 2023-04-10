@@ -1,0 +1,30 @@
+@import 'src/styles/theme/index.scss';
+
+.favorite {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: $base-text-color ;
+  }
+
+  &__btn {
+    width: 80px;
+    height: 30px;
+    border: 1.5px solid $base-grey-color;
+    border-radius: 10px;
+    font-size: 10px;
+    line-height: 15px;
+    color: $base-text-color ;
+    background-color: $base-background-color;
+
+    &:active {
+      box-shadow: $base-shadow-active-btn;
+    }
+  }
+}

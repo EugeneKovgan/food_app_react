@@ -1,0 +1,51 @@
+@import 'src/styles/theme/index.scss';
+
+.free-delivery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+  background-color: $base-delivery-card-color;
+  box-shadow: $base-shadow-card;
+  border-radius: 25px;
+
+  &__description-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__header {
+      &__title {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 26px;
+        color: $base-text-color;
+      }
+
+      &__date {
+        font-weight: 400;
+        font-size: 11px;
+        color: #616F80;
+      }
+    }
+
+    &__btn {
+      width: 90px;
+      height: 30px;
+      background: $base-yellow-color;
+      box-shadow: $base-shadow-btn;
+      border-radius: 20px;
+      border: none;
+      font-size: 10px;
+      line-height: 28px;
+      color: $base-text-color;
+
+      &:active {
+        box-shadow: $base-shadow-active-btn;
+      }
+    }
+
+  }
+}

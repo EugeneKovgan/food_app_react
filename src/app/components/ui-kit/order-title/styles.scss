@@ -1,0 +1,34 @@
+@import 'src/styles/theme/index.scss';
+
+.order-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: $base-text-color ;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: $base-background-color;
+    border: none;
+
+    &:active {
+      box-shadow: $base-shadow-active-btn;
+    }
+
+    & img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
