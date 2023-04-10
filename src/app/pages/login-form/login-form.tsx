@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 
 import './styles.scss';
 
@@ -70,15 +70,10 @@ export const LoginForm: React.FC = () => {
             />
           </Form.Item>
 
-          <Button className="login-form__input-block__link" type="link" block>
-            Forgot Password?
-          </Button>
+          <div className="login-form__input-block__link">Forgot Password?</div>
         </div>
 
         <Form.Item className="login-form__btn-block">
-          {/* <Button type="primary" htmlType="submit">
-            Signup
-          </Button> */}
           <button type="submit" className="login-form__btn-block__btn">
             Login
           </button>

@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: end;
   gap: 1rem;
   padding: 20px 20px 0 20px;
   color: $base-grey-color;
@@ -47,40 +46,15 @@
       justify-content: center;
       width: 8rem;
       padding-bottom: 20px;
-      border: none;
-      border-bottom: 2px solid $base-white-color;
-
-      & span {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 27px;
-      }
-    }
-
-    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+      border: 2px solid $base-white-color ;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
       color: $base-black-color;
-      border-color: $base-white-color;
-      border-bottom: 2px solid $base-yellow-color;
-    }
 
-    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover::before {
-      background-color: $base-white-color;
-    }
-
-    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:first-child,
-    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
-      border-inline-start: none;
-      border-start-start-radius: 0px;
-      border-end-start-radius: 0px;
-    }
-
-    & .ant-radio-group-large :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
-      border-start-end-radius: 0px;
-      border-end-end-radius: 0px;
-    }
-
-    & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
-      background-color: $base-white-color;
+      &.active {
+        border-bottom: 2px solid $base-yellow-color ;
+      }
     }
   }
 }

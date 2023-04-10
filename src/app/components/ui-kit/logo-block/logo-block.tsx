@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from 'antd';
+import { NavLink } from 'react-router-dom';
 import logo from 'assets/images/png/shopping-bag-logo.png';
 
 import './styles.scss';
@@ -12,18 +12,14 @@ export const LogoBlock: React.FC = () => {
         <div className="logo-block__description__title">Corner Food</div>
         <div className="logo-block__description__text">Delivery App </div>
       </div>
-      <Radio.Group
-        className="logo-block__btn-block"
-        defaultValue="a"
-        size="large"
-      >
-        <Radio.Button className="logo-block__btn-block__btn" value="a">
+      <nav className="logo-block__btn-block">
+        <NavLink to="/auth" className="logo-block__btn-block__btn">
           Login
-        </Radio.Button>
-        <Radio.Button className="logo-block__btn-block__btn" value="b">
+        </NavLink>
+        <NavLink to="/registration" className="logo-block__btn-block__btn">
           Signup
-        </Radio.Button>
-      </Radio.Group>
+        </NavLink>
+      </nav>
     </div>
   );
 };
