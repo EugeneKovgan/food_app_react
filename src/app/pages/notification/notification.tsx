@@ -9,14 +9,14 @@ import './styles.scss';
 
 export const Notification: React.FC = () => {
   return (
-    <div className="container">
-      <div className="notification">
+    <div className="notification">
+      <div className="container">
         <NotificationTitle />
         <NotificationCard />
         <NotificationCard />
         <NotificationCard />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

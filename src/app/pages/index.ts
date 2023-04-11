@@ -7,3 +7,4 @@ export * from './my-order';
 export * from './home';
 export * from './favorite';
 export * from './notification';
+export * from './profile';

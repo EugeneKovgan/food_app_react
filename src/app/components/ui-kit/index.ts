@@ -12,3 +12,4 @@ export * from './promo-code';
 export * from './total-price';
 export * from './notification-card';
 export * from './notification-title';
+export * from './profile-block';

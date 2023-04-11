@@ -1,9 +1,8 @@
 @import 'src/styles/theme/index.scss';
 
-.logo-block {
+.profile-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   padding: 20px 20px 0 20px;
   color: $base-grey-color;
@@ -12,26 +11,51 @@
   border-bottom-right-radius: 40px;
   border-bottom-left-radius: 40px;
 
-  & img {
-    width: 7.5rem;
-    height: 7.5rem;
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: $base-text-color;
   }
 
   &__description {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    gap: 1rem;
 
-    &__title {
-      font-weight: 700;
-      font-size: 28px;
+    &__avatar-block {
+      width: 70px;
+      height: 70px;
+
+      & img {
+        border-radius: 50%;
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+      }
     }
 
-    &__text {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 28px;
+    &__main-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      &__name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px
+      }
+
+      &__email {
+        font-weight: 400;
+        font-size: 11px;
+      }
+
+      &__id {
+        font-weight: 400;
+        font-size: 11px;
+      }
     }
   }
 
@@ -45,7 +69,7 @@
     &__btn {
       display: flex;
       justify-content: center;
-      width: 40%;
+      width: 25%;
       height: 45px;
       border: 2px solid $base-white-color ;
       font-weight: 400;
