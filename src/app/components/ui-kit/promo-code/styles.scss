@@ -1,0 +1,48 @@
+@import 'src/styles/theme/index.scss';
+
+.promo-code {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: $base-white-color;
+  box-shadow: $base-shadow-card;
+  border-radius: 15px;
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    margin-left: 1rem;
+
+    &__icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    &__input {
+      border: none;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 28px;
+      width: 50%;
+    }
+  }
+
+  &__btn {
+    width: 76px;
+    height: 33px;
+    background: $base-yellow-color;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 28px;
+    border: none;
+    color: $base-text-color;
+
+    &:active {
+      box-shadow: $base-shadow-active-btn;
+    }
+  }
+}

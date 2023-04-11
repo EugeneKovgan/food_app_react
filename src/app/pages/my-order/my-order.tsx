@@ -1,4 +1,5 @@
 import React from 'react';
+import { PromoCode, TotalPrice } from '@components/ui-kit';
 import { OrderCard } from '@components/ui-kit/order-card';
 import { OrderTitle } from '@components/ui-kit/order-title';
 
@@ -13,6 +14,11 @@ export const MyOrder: React.FC = () => {
         <OrderCard />
         <OrderCard />
         <OrderCard />
+        <PromoCode />
+        <TotalPrice />
+        <button type="button" className="my-order__btn">
+          CONFIRM ORDER
+        </button>
       </div>
     </div>
   );

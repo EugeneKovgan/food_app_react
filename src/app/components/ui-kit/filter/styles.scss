@@ -3,6 +3,7 @@
 .filter {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 20px 0 20px 20px;
   overflow: hidden;
 
@@ -43,16 +44,6 @@
     background: $base-yellow-color;
     border: none;
   }
-
-  // & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
-  //   background-color: $base-yellow-color;
-  //   border: none;
-  // }
-
-  // & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper {
-  //   color: $base-text-color;
-  //   border: none;
-  // }
 
   & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:first-child,
   :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
