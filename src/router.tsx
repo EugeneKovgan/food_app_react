@@ -5,6 +5,7 @@ import { Favorite } from '@pages/favorite/favorite';
 import { Home } from '@pages/home';
 import { Login } from '@pages/login';
 import { MyOrder } from '@pages/my-order';
+import { Notification } from '@pages/notification';
 import { Registration } from '@pages/registration';
 import { MainLayout } from './app/layouts';
 
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'favorite', element: <Favorite /> },
       { path: 'order', element: <MyOrder /> },
+      { path: 'notification', element: <Notification /> },
     ],
   },
   {

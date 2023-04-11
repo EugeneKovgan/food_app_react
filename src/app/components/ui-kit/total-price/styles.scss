@@ -19,7 +19,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 28px;
-    border-bottom: 1px dashed $base-grey-underline-color;
+    border-bottom: $base-grey-dashed-underline;
   }
 
   &__total {
