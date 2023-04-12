@@ -1,8 +1,12 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { AuthLayout } from '@layouts/auth-layout';
+import { Favorite } from '@pages/favorite/favorite';
 import { Home } from '@pages/home';
 import { Login } from '@pages/login';
+import { MyOrder } from '@pages/my-order';
+import { Notification } from '@pages/notification';
+import { Profile } from '@pages/profile';
 import { Registration } from '@pages/registration';
 import { MainLayout } from './app/layouts';
 
@@ -12,7 +16,10 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
-      // { path: 'favorite', element: <Favorite /> },
+      { path: 'favorite', element: <Favorite /> },
+      { path: 'notification', element: <Notification /> },
+      { path: 'profile', element: <Profile /> },
+      { path: 'order', element: <MyOrder /> },
     ],
   },
   {

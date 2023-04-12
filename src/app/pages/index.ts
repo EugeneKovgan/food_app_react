@@ -5,3 +5,6 @@ export * from './registration-form';
 export * from './food-container';
 export * from './my-order';
 export * from './home';
+export * from './favorite';
+export * from './notification';
+export * from './profile';

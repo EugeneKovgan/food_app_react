@@ -1,0 +1,34 @@
+@import 'src/styles/theme/index.scss';
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: $base-white-color;
+  box-shadow: $base-shadow-card;
+  color: $base-text-color;
+
+  &__subtotal,
+  &__delivery,
+  &__total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    border-bottom: $base-grey-dashed-underline;
+  }
+
+  &__total {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+
+    &__value {
+      color: $base-red-color
+    }
+  }
+}

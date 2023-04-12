@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-export const Favorite: React.FC = () => {
+export const FavoriteTitle: React.FC = () => {
   return (
     <div className="container">
       <div className="favorite">

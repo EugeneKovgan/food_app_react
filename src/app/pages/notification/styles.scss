@@ -1,0 +1,9 @@
+@import 'src/styles/theme/index.scss';
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+}

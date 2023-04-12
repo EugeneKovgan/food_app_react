@@ -1,0 +1,15 @@
+@import 'src/styles/theme/index.scss';
+
+.notification-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: $base-text-color ;
+  }
+}
