@@ -1,4 +1,5 @@
 export interface IUserRequest {
+  id: string;
   userName: string;
   name: string;
   surname: string;
