@@ -2,7 +2,7 @@ import React from 'react';
 import {
   FavoriteTitle,
   Filter,
-  Footer,
+  // Footer,
   FreeDelivery,
   Header,
   Search,
@@ -20,7 +20,6 @@ export const Favorite: React.FC = () => {
       <FreeDelivery />
       <FavoriteTitle />
       <FoodContainer />
-      <Footer />
     </div>
   );
 };

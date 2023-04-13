@@ -1,6 +1,8 @@
 @import 'src/styles/theme/index.scss';
 
 .footer {
+  z-index: 1;
+
   &__btn-block {
     display: flex;
     justify-content: center;

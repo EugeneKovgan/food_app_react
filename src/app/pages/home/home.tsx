@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter, Footer, Header, Search } from '@components/ui-kit';
+import { Filter, Header, Search } from '@components/ui-kit';
 import { FoodContainer } from '@pages/food-container';
 
 import './styles.scss';
@@ -11,7 +11,6 @@ export const Home: React.FC = () => {
       <Search />
       <Filter />
       <FoodContainer />
-      <Footer />
     </div>
   );
 };
