@@ -17,7 +17,7 @@ export const store = configureStore({
     user: persistedReducer,
   },
   middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware(),
+    ...getDefaultMiddleware({ serializableCheck: false }),
     authApi.middleware,
   ],
 });

@@ -4,9 +4,32 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 10px;
-  background-color: $base-white-color;
-  width: 40%;
-  border-radius: 0px 20px;
-  color: $base-text-color;
+
+  &__my-card {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: $base-text-color;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__card {
+      background-color: $base-background-credit-card-color;
+      width: 20rem;
+      height: 10rem;
+      box-shadow: $base-shadow-btn;
+      border-radius: 20px;
+
+      &__header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+    }
+  }
 }

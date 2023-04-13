@@ -1,7 +1,4 @@
 export interface IUserRequest {
-  // id: string;
-  // userName: string;
-  // email: string;
   userName: string;
   name: string;
   surname: string;
