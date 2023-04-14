@@ -1,11 +1,12 @@
 import React from 'react';
 import avatar from 'assets/images/icons/profile.svg';
+import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
 
 import './styles.scss';
 
 export const Header: React.FC = () => {
-  const selectedUser = useAppSelector(state => state.user.user);
+  const currentUser = useAppSelector(state => state.user.user);
 
   return (
     <div className="container">
@@ -13,7 +14,11 @@ export const Header: React.FC = () => {
         <div className="header__title">Let’s eat Quality food </div>
         <img
           className="header__avatar"
-          src={selectedUser?.avatar ? selectedUser?.avatar : avatar}
+          src={
+            currentUser?.avatar?.path
+              ? `${config.API_URL}/${currentUser.avatar.path}`
+              : avatar
+          }
           alt="profile"
         />
       </div>

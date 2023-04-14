@@ -1,14 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avatar from 'assets/images/icons/profile.svg';
+import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
 
 import './styles.scss';
 
 export const ProfileBlock: React.FC = () => {
-  const selectedUser = useAppSelector(state => state.user.user);
-
-  console.log(selectedUser);
+  const currentUser = useAppSelector(state => state.user.user);
 
   return (
     <div className="profile-block">
@@ -17,20 +16,24 @@ export const ProfileBlock: React.FC = () => {
       <div className="profile-block__description">
         <div className="profile-block__description__avatar-block">
           <img
-            src={selectedUser?.avatar ? selectedUser?.avatar : avatar}
-            alt="profile"
+            src={
+              currentUser?.avatar?.path
+                ? `${config.API_URL}/${currentUser.avatar.path}`
+                : avatar
+            }
+            alt="avatar"
           />
         </div>
 
         <div className="profile-block__description__main-block">
           <div className="profile-block__description__main-block__name">
-            {selectedUser?.userName}
+            {currentUser?.userName}
           </div>
           <div className="profile-block__description__main-block__email">
-            {selectedUser?.email}
+            {currentUser?.email}
           </div>
           <div className="profile-block__description__main-block__id">
-            User ID: {selectedUser?.id}
+            User ID: {currentUser?.id}
           </div>
         </div>
       </div>

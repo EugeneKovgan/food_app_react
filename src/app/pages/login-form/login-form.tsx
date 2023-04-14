@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input } from 'antd';
-import { Loader, ModalError } from '@components/ui-kit';
+import { Loader } from '@components/ui-kit';
 import { useAppDispatch } from '@core/hooks';
 import { useGetCurrentUserQuery, useLoginUserMutation } from '@store/users';
 import { setToken, setUser } from '@store/users/models/auth-slice';
@@ -11,7 +11,6 @@ import './styles.scss';
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  // const [modalError, setModalError] = useState<boolean>(false);
 
   const onEmailChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +49,6 @@ export const LoginForm: React.FC = () => {
 
   useEffect(() => {
     if (isError) {
-      // setModalError(true);
       alert('check email or password');
     }
   }, [isError]);
@@ -64,7 +62,6 @@ export const LoginForm: React.FC = () => {
 
   return (
     <>
-      <ModalError />
       {isLoading ? (
         <Loader />
       ) : (

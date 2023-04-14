@@ -8,7 +8,6 @@ export const Filter: React.FC = () => {
   const [btnFilter, setBtnFilter] = useState('fastFood');
 
   const onChange = ({ target: { value } }: RadioChangeEvent) => {
-    console.log('radi checked', value);
     setBtnFilter(value);
   };
 
