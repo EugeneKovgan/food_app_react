@@ -3,11 +3,10 @@ import call_icon from 'assets/images/icons/call.svg';
 import map_icon from 'assets/images/icons/map.svg';
 import clock_icon from 'assets/images/icons/time.svg';
 import { config } from '@core/config';
-import { ICouriersRequest } from '@store/couriers/models';
 
 import './styles.scss';
 
-export const NotificationCard: React.FC<any> = (courier: ICouriersRequest) => {
+export const NotificationCard: React.FC<any> = ({ courier }) => {
   return (
     <div className="container">
       <div className="notification-card">

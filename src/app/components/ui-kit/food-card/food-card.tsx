@@ -1,21 +1,20 @@
 import React from 'react';
 import like_icon from 'assets/images/icons/favorite.svg';
-// import { config } from '@core/config';
-import { IProductRequest } from '@store/products/models';
+import { config } from '@core/config';
 
 import './styles.scss';
 
-export const FoodCard: React.FC<any> = (product: IProductRequest) => {
+export const FoodCard: React.FC<any> = ({ product }) => {
   console.log(product);
 
   return (
     <div className="food-card">
       <div className="food-card__img-block">
-        {/* <img
+        <img
           className="food-card__img-block__bg"
           src={`${config.API_URL}/${product?.picture?.path}`}
           alt="img"
-        /> */}
+        />
         <div className="food-card__img-block__like-block">
           <img
             className="food-card__img-block__like-block__img"

@@ -6,7 +6,7 @@ import { IProductRequest } from '@store/products/models';
 import './styles.scss';
 
 export const FoodContainer: React.FC = () => {
-  const { data, isLoading } = useGetProductsQuery('products');
+  const { data, isLoading } = useGetProductsQuery();
 
   console.log(data);
 

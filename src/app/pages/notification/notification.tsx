@@ -10,7 +10,7 @@ import { ICouriersRequest } from '@store/couriers/models';
 import './styles.scss';
 
 export const Notification: React.FC = () => {
-  const { data = [], isLoading } = useGetAllCouriersQuery();
+  const { data, isLoading } = useGetAllCouriersQuery();
 
   return (
     <>
@@ -19,8 +19,8 @@ export const Notification: React.FC = () => {
         <Loader />
       ) : (
         <div className="notification">
-          {data.map((item: ICouriersRequest) => {
-            return <NotificationCard props={item} key={item.id} />;
+          {data.map((courier: ICouriersRequest) => {
+            return <NotificationCard courier={courier} key={courier.id} />;
           })}
         </div>
       )}
