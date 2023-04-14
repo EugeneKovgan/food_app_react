@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';

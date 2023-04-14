@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 import { userReducer } from './users/models/auth-slice';
+import { couriersApi } from './couriers';
+import { productsApi } from './products';
 import { authApi } from './users';
 
 const persistConfig = {
@@ -15,10 +17,14 @@ export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
     user: persistedReducer,
+    [productsApi.reducerPath]: productsApi.reducer,
+    [couriersApi.reducerPath]: couriersApi.reducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({ serializableCheck: false }),
     authApi.middleware,
+    productsApi.middleware,
+    couriersApi.middleware,
   ],
 });
 

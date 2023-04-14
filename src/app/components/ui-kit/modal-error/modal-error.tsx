@@ -1,15 +1,40 @@
-import React from 'react';
-import cross_icon from 'assets/images/icons/close.svg';
+/* eslint-disable @typescript-eslint/naming-convention */
+import React, { useEffect, useState } from 'react';
+import { Modal } from 'antd';
 
 import './styles.scss';
 
-export const ModalError: React.FC = () => {
+interface propsTypes {
+  modal: boolean;
+}
+
+export const ModalError: React.FC<propsTypes> = ({ modal }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (modal) {
+      setIsModalOpen(true);
+    }
+  }, [isModalOpen]);
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="modal-error">
-      <button className="modal-error__btn" type="button">
-        <img src={cross_icon} alt="cross_icon" />
-      </button>
-      modal-error
-    </div>
+    <Modal
+      title="Basic Modal"
+      open={isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+    >
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+    </Modal>
   );
 };

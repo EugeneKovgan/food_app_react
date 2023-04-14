@@ -1,15 +1,29 @@
 import React from 'react';
-import { NotificationCard, NotificationTitle } from '@components/ui-kit';
+import {
+  Loader,
+  NotificationCard,
+  NotificationTitle,
+} from '@components/ui-kit';
+import { useGetAllCouriersQuery } from '@store/couriers';
+import { ICouriersRequest } from '@store/couriers/models';
 
 import './styles.scss';
 
 export const Notification: React.FC = () => {
+  const { data = [], isLoading } = useGetAllCouriersQuery();
+
   return (
-    <div className="container">
+    <>
       <NotificationTitle />
-      <NotificationCard />
-      <NotificationCard />
-      <NotificationCard />
-    </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="notification">
+          {data.map((item: ICouriersRequest) => {
+            return <NotificationCard props={item} key={item.id} />;
+          })}
+        </div>
+      )}
+    </>
   );
 };

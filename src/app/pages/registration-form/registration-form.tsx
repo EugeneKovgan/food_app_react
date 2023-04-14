@@ -1,10 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, Input } from 'antd';
+import { useAppDispatch } from '@core/hooks';
+import { useCreateUserMutation, useGetCurrentUserQuery } from '@store/users';
+import { setToken, setUser } from '@store/users/models/auth-slice';
 
 import './styles.scss';
 
 export const RegistrationForm: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
+  const [userName, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
@@ -37,18 +41,39 @@ export const RegistrationForm: React.FC = () => {
     [],
   );
 
+  const redirect = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const [createdUser, { data: currentUser, isSuccess, isError }] =
+    useCreateUserMutation();
+
+  const { data: allCreatedUser } = useGetCurrentUserQuery(currentUser?.token);
+
   const onFinish = async () => {
-    if (username && email && password && confirmPassword) {
-      // await loginUser({ email, password });
-      // dispatch(setUser(allLoggedUser.user));
+    if (userName && email && password && confirmPassword) {
+      await createdUser({ userName, email, password });
+      dispatch(setUser(allCreatedUser.user));
     } else {
-      alert('All gaps myst be field !');
+      alert('All gaps must be field !');
     }
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
+
+  useEffect(() => {
+    if (isError) {
+      alert('check all fields');
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(setToken(currentUser.token));
+      redirect('/favorite');
+    }
+  }, [isSuccess]);
 
   return (
     <div className="container">
@@ -64,7 +89,7 @@ export const RegistrationForm: React.FC = () => {
           <Form.Item
             className="registration-form__input-block__item"
             label="Username"
-            name="username"
+            name="userName"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
             <Input

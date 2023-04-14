@@ -6,9 +6,14 @@ export interface IUserRequest {
   email: string;
   phoneNumber: string;
   address: string;
-  avatar: any;
   cardNumber: string[];
   password: string;
+  avatar: IAvatar;
+}
+
+export interface IAvatar {
+  id: string;
+  path: string;
 }
 
 export interface IUserResponse {
