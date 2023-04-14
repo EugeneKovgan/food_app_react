@@ -5,16 +5,13 @@ export const productsApi = createApi({
   reducerPath: 'products',
   baseQuery: BASE_QUERY,
   endpoints: builder => ({
-    getAllProducts: builder.query<any, void>({
-      query(data) {
-        return {
-          url: '/products',
-          method: 'GET',
-          body: data,
-        };
-      },
+    getProducts: builder.query({
+      query: params => ({
+        url: 'products',
+        params,
+      }),
     }),
   }),
 });
 
-export const { useGetAllProductsQuery } = productsApi;
+export const { useGetProductsQuery } = productsApi;
