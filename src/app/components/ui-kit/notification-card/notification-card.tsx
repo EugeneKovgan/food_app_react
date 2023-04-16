@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import call_icon from 'assets/images/icons/call.svg';
 import map_icon from 'assets/images/icons/map.svg';
 import clock_icon from 'assets/images/icons/time.svg';
@@ -21,24 +22,24 @@ export const NotificationCard: React.FC<any> = ({ courier }) => {
 
             <div className="notification-card__header-block__left-block__description">
               <div className="notification-card__header-block__left-block__description__name">
-                {courier?.name}
+                {`${courier?.name} ${courier?.surname}`}
               </div>
               <div className="notification-card__header-block__left-block__description__id">
-                {courier?.id}
-                {/* ID : 78A6767 */}
+                ID: {courier?.couriersId}
               </div>
               <div className="notification-card__header-block__left-block__description__courier">
                 Food courier
               </div>
             </div>
           </div>
-
-          <button
-            type="button"
-            className="notification-card__header-block__phone"
-          >
-            <img src={call_icon} alt="call" />
-          </button>
+          <NavLink to={`tel:${courier?.phoneNumber}`}>
+            <button
+              type="button"
+              className="notification-card__header-block__phone"
+            >
+              <img src={call_icon} alt="call" title={courier?.phoneNumber} />
+            </button>
+          </NavLink>
         </div>
 
         <div className="notification-card__footer">

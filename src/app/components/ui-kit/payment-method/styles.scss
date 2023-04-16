@@ -18,47 +18,61 @@
     justify-content: space-between;
     align-items: center;
 
-    &__card {
+    &__cards {
+      box-sizing: border-box;
       background-color: $base-white-color;
-      width: 19rem;
-      height: 11rem;
+      width: 17rem;
+      padding: 2rem;
       box-shadow: $base-shadow-btn;
       border-radius: 20px;
       color: #2B2D33;
 
-      &__header {
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 20px;
-        padding-bottom: 5px;
-        padding-right: 2rem;
-
-        & img {
-          width: 3rem;
-        }
-      }
-
-      &__btn {
+      &__item-container {
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background-color: $base-yellow-color;
-        border: 2px solid $base-white-color;
-        box-shadow: $base-shadow-btn;
+        justify-content: space-between;
 
-        &:active {
-          box-shadow: $base-shadow-active-btn;
+        & img {
+          width: 25px;
+          height: 16px;
         }
 
-        & span {
-          color: $base-text-color;
-          font-size: 25px;
+        &__main {
+          display: flex;
+          flex-direction: row-reverse;
+          // width: 100%;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 18px
         }
       }
     }
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background-color: $base-yellow-color;
+      border: 2px solid $base-white-color;
+      box-shadow: $base-shadow-btn;
+
+      &:active {
+        box-shadow: $base-shadow-active-btn;
+      }
+
+      & span {
+        color: $base-text-color;
+        font-size: 25px;
+      }
+    }
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+    border-color: $base-white-color;
+    background-color: $base-yellow-color;
   }
 }

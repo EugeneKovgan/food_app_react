@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
 import { BTN_NAMES } from './models';
 
 import './styles.scss';
 
 export const Filter: React.FC = () => {
-  const [btnFilter, setBtnFilter] = useState('fastFood');
+  const [btnFilter, setBtnFilter] = useState('');
 
-  const onChange = ({ target: { value } }: RadioChangeEvent) => {
+  const onChange = ({ target: { value } }: any) => {
     setBtnFilter(value);
   };
 
   return (
     <div className="filter">
-      <Radio.Group
-        className="filter__btn-block"
-        options={BTN_NAMES}
-        onChange={onChange}
-        value={btnFilter}
-        optionType="button"
-        buttonStyle="solid"
-      />
+      <div className="filter__btn-block">
+        {BTN_NAMES.map(btn => {
+          return (
+            <button
+              type="button"
+              onChange={onChange}
+              value={btnFilter}
+              key={btn.id}
+            >
+              {btn.label}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

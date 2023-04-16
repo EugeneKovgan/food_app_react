@@ -1,33 +1,57 @@
 import React from 'react';
-import img from 'assets/images/fish/chargrilled-fish.jpeg';
+import { config } from '@core/config';
+import { useAppDispatch } from '@core/hooks';
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  InitialStateType,
+} from '@store/basket';
 
 import './styles.scss';
 
-export const OrderCard: React.FC = () => {
+type PropsType = {
+  good: InitialStateType;
+  key: string;
+};
+
+export const OrderCard: React.FC<PropsType> = ({ good }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className="order-card">
       <div className="order-card__img-block">
-        <img className="order-card__img-block__img" src={img} alt="img" />
+        <img
+          className="order-card__img-block__img"
+          src={`${config.API_URL}/${good.picture.path}`}
+          alt="img"
+        />
       </div>
       <div className="order-card__description">
-        <div className="order-card__description__title">Grilled Fish</div>
+        <div className="order-card__description__title">{good.productName}</div>
         <div className="order-card__description__food-category">
-          Spicy fried noodle
+          {good.productName}
         </div>
         <div className="order-card__description__price">
-          <span>$</span>6.50
+          <span>$</span>
+          {good.productPrice}
         </div>
       </div>
       <div className="order-card__btn-base">
         <div className="order-card__btn-base__btn-block">
           <button
+            onClick={() => {
+              dispatch(decreaseQuantity(good.id));
+            }}
             className="order-card__btn-base__btn-block__btn"
             type="button"
           >
             -
           </button>
-          <span>1</span>
+          <span>{good.quantity}</span>
           <button
+            onClick={() => {
+              dispatch(increaseQuantity(good.id));
+            }}
             className="order-card__btn-base__btn-block__btn"
             type="button"
           >
