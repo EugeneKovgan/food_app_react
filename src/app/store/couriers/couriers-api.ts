@@ -5,12 +5,11 @@ export const couriersApi = createApi({
   reducerPath: 'couriers',
   baseQuery: BASE_QUERY,
   endpoints: builder => ({
-    getAllCouriers: builder.query<any, void>({
-      query(data) {
+    getAllCouriers: builder.query({
+      query: params => {
         return {
           url: '/couriers',
-          method: 'GET',
-          body: data,
+          params,
         };
       },
     }),

@@ -25,8 +25,8 @@ export const MyOrder: React.FC = () => {
         <div className="my-order__container">
           {goodsInBasket.length > 0 ? (
             <>
-              {goodsInBasket.map((item: InitialStateType) => {
-                return <OrderCard good={item} key={item.id} />;
+              {goodsInBasket.map((good: InitialStateType) => {
+                return <OrderCard good={good} key={good.id} />;
               })}
               <PromoCode />
               <TotalPrice totalPrice={totalPrice} />

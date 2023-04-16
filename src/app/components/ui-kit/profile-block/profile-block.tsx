@@ -39,13 +39,22 @@ export const ProfileBlock: React.FC = () => {
       </div>
 
       <nav className="profile-block__btn-block">
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/account"
+          className="profile-block__btn-block__btn"
+        >
           Account
         </NavLink>
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/payment"
+          className="profile-block__btn-block__btn"
+        >
           Payment
         </NavLink>
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/history"
+          className="profile-block__btn-block__btn"
+        >
           History
         </NavLink>
       </nav>

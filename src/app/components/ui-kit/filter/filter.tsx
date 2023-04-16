@@ -4,9 +4,11 @@ import { BTN_NAMES } from './models';
 import './styles.scss';
 
 export const Filter: React.FC = () => {
-  const [btnFilter, setBtnFilter] = useState('');
+  const [btnFilter, setBtnFilter] = useState('fastFood');
 
   const onChange = ({ target: { value } }: any) => {
+    console.log(btnFilter);
+
     setBtnFilter(value);
   };
 
@@ -16,9 +18,9 @@ export const Filter: React.FC = () => {
         {BTN_NAMES.map(btn => {
           return (
             <button
+              onClick={onChange}
               type="button"
-              onChange={onChange}
-              value={btnFilter}
+              value={btn.value}
               key={btn.id}
             >
               {btn.label}

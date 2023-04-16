@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
           </svg>
         </NavLink>
 
-        <NavLink to="/profile">
+        <NavLink to="/profile/payment">
           <svg
             className="footer__icons-block__icon"
             xmlns="http://www.w3.org/2000/svg"

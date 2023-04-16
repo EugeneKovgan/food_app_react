@@ -4,40 +4,43 @@ import call_icon from 'assets/images/icons/call.svg';
 import map_icon from 'assets/images/icons/map.svg';
 import clock_icon from 'assets/images/icons/time.svg';
 import { config } from '@core/config';
+import { ICouriers } from '@store/couriers/models';
 
 import './styles.scss';
 
-export const NotificationCard: React.FC<any> = ({ courier }) => {
+type PropsType = {
+  courier: ICouriers;
+  key: string;
+};
+
+export const NotificationCard: React.FC<PropsType> = ({ courier }) => {
   return (
     <div className="container">
       <div className="notification-card">
         <div className="notification-card__header-block">
           <div className="notification-card__header-block__left-block">
             <div className="notification-card__header-block__left-block__avatar">
-              <img
-                src={`${config.API_URL}/${courier?.avatar?.path}`}
-                alt="img"
-              />
+              <img src={`${config.API_URL}/${courier.avatar.path}`} alt="img" />
             </div>
 
             <div className="notification-card__header-block__left-block__description">
               <div className="notification-card__header-block__left-block__description__name">
-                {`${courier?.name} ${courier?.surname}`}
+                {`${courier.name} ${courier.surname}`}
               </div>
               <div className="notification-card__header-block__left-block__description__id">
-                ID: {courier?.couriersId}
+                ID: {courier.couriersId}
               </div>
               <div className="notification-card__header-block__left-block__description__courier">
                 Food courier
               </div>
             </div>
           </div>
-          <NavLink to={`tel:${courier?.phoneNumber}`}>
+          <NavLink to={`tel:${courier.phoneNumber}`}>
             <button
               type="button"
               className="notification-card__header-block__phone"
             >
-              <img src={call_icon} alt="call" title={courier?.phoneNumber} />
+              <img src={call_icon} alt="call" title={courier.phoneNumber} />
             </button>
           </NavLink>
         </div>
@@ -55,7 +58,7 @@ export const NotificationCard: React.FC<any> = ({ courier }) => {
                 Your Delivery Time
               </div>
               <div className="notification-card__footer__time__description__text">
-                {courier?.deliveryTime} minutes
+                {courier.deliveryTime} minutes
               </div>
             </div>
           </div>
@@ -72,7 +75,7 @@ export const NotificationCard: React.FC<any> = ({ courier }) => {
                 Your Delivery Address
               </div>
               <div className="notification-card__footer__place__description__text">
-                {courier?.address}
+                {courier.address}
               </div>
             </div>
           </div>

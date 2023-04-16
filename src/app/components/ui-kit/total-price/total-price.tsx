@@ -2,8 +2,11 @@ import React from 'react';
 
 import './styles.scss';
 
-// export const TotalPrice: React.FC<number> = ({ totalPrice }) => { WTf ? @number get "is not assignable to type 'number'"
-export const TotalPrice: React.FC<any> = ({ totalPrice }) => {
+type PropsType = {
+  totalPrice: number;
+};
+
+export const TotalPrice: React.FC<PropsType> = ({ totalPrice }) => {
   return (
     <div className="total-price">
       <div className="total-price__subtotal">

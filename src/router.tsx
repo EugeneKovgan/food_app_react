@@ -6,7 +6,7 @@ import { Home } from '@pages/home';
 import { Login } from '@pages/login';
 import { MyOrder } from '@pages/my-order';
 import { Notification } from '@pages/notification';
-import { Profile } from '@pages/profile';
+import { ProfileAccount, ProfileHistory, ProfilePayment } from '@pages/profile';
 import { Registration } from '@pages/registration';
 import { MainLayout } from './app/layouts';
 
@@ -17,9 +17,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'favorite', element: <Favorite /> },
-      { path: 'notification', element: <Notification /> },
-      { path: 'profile', element: <Profile /> },
       { path: 'order', element: <MyOrder /> },
+      { path: 'notification', element: <Notification /> },
     ],
   },
   {
@@ -31,5 +30,15 @@ export const router = createBrowserRouter([
     path: '/registration',
     element: <AuthLayout />,
     children: [{ index: true, element: <Registration /> }],
+  },
+  {
+    path: 'profile/',
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <ProfilePayment /> },
+      { path: 'payment', element: <ProfilePayment /> },
+      { path: 'account', element: <ProfileAccount /> },
+      { path: 'history', element: <ProfileHistory /> },
+    ],
   },
 ]);
