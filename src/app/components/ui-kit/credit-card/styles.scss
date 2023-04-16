@@ -10,17 +10,18 @@
     font-size: 14px;
     line-height: 21px;
     color: $base-text-color;
+    padding: 10px 0;
   }
 
   &__block {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
 
     &__card {
+      flex: 2;
       background-color: $base-background-credit-card-color;
-      width: 17rem;
       height: 11rem;
       box-shadow: $base-shadow-btn;
       border-radius: 20px;

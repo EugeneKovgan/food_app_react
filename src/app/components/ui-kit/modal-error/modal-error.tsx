@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 
 import './styles.scss';
 
 interface propsTypes {
-  modal: boolean;
+  isModalOpen: boolean;
+  setIsModalOpen: any;
 }
 
-export const ModalError: React.FC<propsTypes> = ({ modal }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const ModalError: React.FC<propsTypes> = ({
+  isModalOpen,
+  setIsModalOpen,
+}) => {
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    if (modal) {
+    if (isModalOpen) {
       setIsModalOpen(true);
     }
   }, [isModalOpen]);

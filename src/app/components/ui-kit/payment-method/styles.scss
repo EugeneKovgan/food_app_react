@@ -10,40 +10,54 @@
     font-size: 14px;
     line-height: 21px;
     color: $base-text-color;
+    padding: 10px 0;
   }
 
   &__block {
     display: flex;
-    flex-direction: row;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
 
     &__cards {
-      box-sizing: border-box;
+      flex: 2;
       background-color: $base-white-color;
-      width: 17rem;
       padding: 2rem;
       box-shadow: $base-shadow-btn;
       border-radius: 20px;
-      color: #2B2D33;
+      color: $base-black-color;
 
-      &__item-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      &-container {
+        width: 100%;
 
-        & img {
-          width: 25px;
-          height: 16px;
-        }
-
-        &__main {
+        &__item-container {
           display: flex;
-          flex-direction: row-reverse;
-          // width: 100%;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 18px
+          align-items: center;
+          gap: 1rem;
+
+          & .ant-radio-wrapper::after {
+            content: none;
+          }
+
+          & .ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+            border-color: $base-white-color;
+            background-color: $base-yellow-color;
+          }
+
+          & img {
+            width: 25px;
+            height: 16px;
+          }
+
+          &__main {
+            flex: 2;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 18px
+          }
         }
       }
     }
@@ -69,10 +83,5 @@
         font-size: 25px;
       }
     }
-  }
-
-  & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
-    border-color: $base-white-color;
-    background-color: $base-yellow-color;
   }
 }

@@ -9,6 +9,7 @@
   background-color: $base-white-color;
   box-shadow: $base-shadow-card;
   border-radius: 15px;
+  width: 100%;
 
   &__title {
     display: flex;
@@ -27,7 +28,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 28px;
-      width: 50%;
+      width: 60%;
     }
   }
 

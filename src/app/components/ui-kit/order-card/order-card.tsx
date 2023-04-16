@@ -29,34 +29,36 @@ export const OrderCard: React.FC<PropsType> = ({ good }) => {
       <div className="order-card__description">
         <div className="order-card__description__title">{good.productName}</div>
         <div className="order-card__description__food-category">
-          {good.productName}
+          {good.productCategory}
         </div>
-        <div className="order-card__description__price">
-          <span>$</span>
-          {good.productPrice}
-        </div>
-      </div>
-      <div className="order-card__btn-base">
-        <div className="order-card__btn-base__btn-block">
-          <button
-            onClick={() => {
-              dispatch(decreaseQuantity(good.id));
-            }}
-            className="order-card__btn-base__btn-block__btn"
-            type="button"
-          >
-            -
-          </button>
-          <span>{good.quantity}</span>
-          <button
-            onClick={() => {
-              dispatch(increaseQuantity(good.id));
-            }}
-            className="order-card__btn-base__btn-block__btn"
-            type="button"
-          >
-            +
-          </button>
+        <div className="order-card__description__footer">
+          <div className="order-card__description__footer__price">
+            <span>$</span>
+            {good.productPrice}
+          </div>
+          <div className="order-card__description__footer__btn-base">
+            <div className="order-card__description__footer__btn-base__btn-block">
+              <button
+                onClick={() => {
+                  dispatch(decreaseQuantity(good.id));
+                }}
+                className="order-card__description__footer__btn-base__btn-block__btn"
+                type="button"
+              >
+                -
+              </button>
+              <span>{good.quantity}</span>
+              <button
+                onClick={() => {
+                  dispatch(increaseQuantity(good.id));
+                }}
+                className="order-card__description__footer__btn-base__btn-block__btn"
+                type="button"
+              >
+                +
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

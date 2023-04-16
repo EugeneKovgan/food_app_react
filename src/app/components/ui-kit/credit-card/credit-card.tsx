@@ -1,19 +1,14 @@
 import React from 'react';
 import masterCard from 'assets/images/icons/master-card.svg';
 import amazon from 'assets/images/png/amazon.png';
-import { useGetCurrentUserQuery } from '@store/users';
-import { Loader } from '../loader/loader';
 
 import './styles.scss';
 
 export const CreditCard: React.FC = () => {
-  const { data, isLoading } = useGetCurrentUserQuery('user');
-
-  console.log(data);
-
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
+    //  isLoading ? (
+    // <Loader />
+    // ) : (
     <div className="container">
       <div className="credit-card">
         <div className="credit-card__my-card">My Card</div>
@@ -24,7 +19,7 @@ export const CreditCard: React.FC = () => {
             </div>
             <div className="credit-card__block__card__main">
               <div className="credit-card__block__card__main__text">
-                {`${data?.name}`}
+                Achmad Qomarudin
               </div>
             </div>
 

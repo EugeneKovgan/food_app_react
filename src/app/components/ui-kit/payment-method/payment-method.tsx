@@ -19,35 +19,39 @@ export const PaymentMethod: React.FC = () => {
       <div className="payment-method">
         <div className="payment-method__my-card">Payment Method</div>
         <div className="payment-method__block">
-          <Radio.Group onChange={onChange} value={value}>
+          <Radio.Group
+            className="payment-method__block__cards"
+            onChange={onChange}
+            value={value}
+          >
             <Space
+              className="payment-method__block__cards-container"
               direction="vertical"
-              className="payment-method__block__cards"
             >
-              <div className="payment-method__block__cards__item-container">
+              <div className="payment-method__block__cards-container__item-container">
                 <img src={masterCard} alt="masterCard" />
                 <Radio
-                  className="payment-method__block__cards__item-container__main"
+                  className="payment-method__block__cards-container__item-container__main"
                   value={1}
                 >
                   Credit Card
                 </Radio>
               </div>
 
-              <div className="payment-method__block__cards__item-container">
+              <div className="payment-method__block__cards-container__item-container">
                 <img src={payPal} alt="payPal" />
                 <Radio
-                  className="payment-method__block__cards__item-container__main"
+                  className="payment-method__block__cards-container__item-container__main"
                   value={2}
                 >
                   Paypal
                 </Radio>
               </div>
 
-              <div className="payment-method__block__cards__item-container">
+              <div className="payment-method__block__cards-container__item-container">
                 <img src={google} alt="google" />
                 <Radio
-                  className="payment-method__block__cards__item-container__main"
+                  className="payment-method__block__cards-container__item-container__main"
                   value={3}
                 >
                   Google Pay
