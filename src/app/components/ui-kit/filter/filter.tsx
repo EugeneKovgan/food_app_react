@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BTN_NAMES } from './models';
 
 import './styles.scss';
 
-export const Filter: React.FC = () => {
-  const [btnFilter, setBtnFilter] = useState('fastFood');
+// type PropsType = {
+//   btnFilter: string;
+//   setBtnFilter: any;
+// };
 
+export const Filter: React.FC<any> = ({ btnFilter, setBtnFilter }) => {
   const onChange = ({ target: { value } }: any) => {
     console.log(btnFilter);
 

@@ -20,9 +20,12 @@
     align-items: center;
 
     &__card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       flex: 2;
       background-color: $base-background-credit-card-color;
-      height: 11rem;
+      min-height: 40vw;
       box-shadow: $base-shadow-btn;
       border-radius: 20px;
       color: $base-white-color;

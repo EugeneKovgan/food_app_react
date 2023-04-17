@@ -30,12 +30,19 @@
     }
 
     &__empty-basket {
-      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5rem;
       margin: 0 auto;
       font-weight: 700;
       font-size: 24px;
       line-height: 36px;
       color: $base-text-color;
+
+      & p {
+        margin: 0;
+      }
     }
   }
 }

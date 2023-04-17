@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import { Radio, RadioChangeEvent, Space } from 'antd';
 import google from 'assets/images/icons/google.svg';
 import masterCard from 'assets/images/icons/master-card.svg';
@@ -61,7 +62,7 @@ export const PaymentMethod: React.FC = () => {
           </Radio.Group>
 
           <button className="payment-method__block__btn" type="button">
-            <span>+</span>
+            <PlusOutlined />
           </button>
         </div>
       </div>

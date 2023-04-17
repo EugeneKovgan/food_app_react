@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import shopping_bag from 'assets/images/png/image_shopping_app.png';
 
 import './styles.scss';
@@ -17,12 +18,14 @@ export const FreeDelivery: React.FC = () => {
               May 10 - June 21
             </div>
           </div>
-          <button
-            className="free-delivery__description-block__btn"
-            type="button"
-          >
-            Order Now
-          </button>
+          <NavLink to="/">
+            <button
+              className="free-delivery__description-block__btn"
+              type="button"
+            >
+              Order Now
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>

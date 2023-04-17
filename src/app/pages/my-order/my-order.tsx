@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Empty } from 'antd';
 import { PromoCode, TotalPrice } from '@components/ui-kit';
 import { OrderCard } from '@components/ui-kit/order-card';
 import { OrderTitle } from '@components/ui-kit/order-title';
@@ -36,7 +37,8 @@ export const MyOrder: React.FC = () => {
             </>
           ) : (
             <div className="my-order__container__empty-basket">
-              Basket is empty
+              <Empty description={false} />
+              <p>Basket is empty</p>
             </div>
           )}{' '}
         </div>

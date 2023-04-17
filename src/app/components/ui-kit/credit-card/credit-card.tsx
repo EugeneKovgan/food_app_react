@@ -1,4 +1,5 @@
 import React from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import masterCard from 'assets/images/icons/master-card.svg';
 import amazon from 'assets/images/png/amazon.png';
 
@@ -6,9 +7,6 @@ import './styles.scss';
 
 export const CreditCard: React.FC = () => {
   return (
-    //  isLoading ? (
-    // <Loader />
-    // ) : (
     <div className="container">
       <div className="credit-card">
         <div className="credit-card__my-card">My Card</div>
@@ -40,7 +38,7 @@ export const CreditCard: React.FC = () => {
             </div>
           </div>
           <button className="credit-card__block__card__btn" type="button">
-            <span>+</span>
+            <PlusOutlined />
           </button>
         </div>
       </div>

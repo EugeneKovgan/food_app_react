@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import { Loader } from '@components/ui-kit';
 import { useAppDispatch } from '@core/hooks';
 import { useGetCurrentUserQuery, useLoginUserMutation } from '@store/users';
@@ -47,9 +47,16 @@ export const LoginForm: React.FC = () => {
     console.log('Failed:', errorInfo);
   };
 
+  const warning = () => {
+    Modal.warning({
+      title: 'Warning message',
+      content: 'Check email or password',
+    });
+  };
+
   useEffect(() => {
     if (isError) {
-      alert('check email or password');
+      warning();
     }
   }, [isError]);
 

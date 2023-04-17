@@ -1,13 +1,11 @@
 import React from 'react';
 import {
   FavoriteTitle,
-  Filter,
-  // Footer,
+  // Filter,
   FreeDelivery,
   Header,
-  Search,
+  // Search,
 } from '@components/ui-kit';
-import { FoodContainer } from '@pages/food-container';
 
 import './styles.scss';
 
@@ -15,11 +13,10 @@ export const Favorite: React.FC = () => {
   return (
     <div className="favorite-page">
       <Header />
-      <Search />
-      <Filter />
+      {/* <Search /> */}
+      {/* <Filter /> */}
       <FreeDelivery />
       <FavoriteTitle />
-      <FoodContainer />
     </div>
   );
 };
