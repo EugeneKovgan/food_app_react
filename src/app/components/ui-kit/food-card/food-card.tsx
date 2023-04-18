@@ -1,7 +1,10 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import like_icon from 'assets/images/icons/favorite.svg';
+import like_icon_fill from 'assets/images/icons/favorite-fill.svg';
 import { config } from '@core/config';
+import { useAppSelector } from '@core/hooks';
 import { addToBasket } from '@store/basket';
 import { IProduct } from '@store/products/models';
 
@@ -13,6 +16,10 @@ type PropsType = {
 };
 
 export const FoodCard: React.FC<PropsType> = ({ product }) => {
+  const currentUser = useAppSelector(state => state.user.user);
+  const [favoriteList, setFavoriteList] = useState(
+    currentUser?.favoritesProducts,
+  );
   const dispatch = useDispatch();
   const addItemToCard = () => {
     dispatch(addToBasket(product));
@@ -29,7 +36,9 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
         <div className="food-card__img-block__like-block">
           <img
             className="food-card__img-block__like-block__img"
-            src={like_icon}
+            src={
+              favoriteList?.includes(product.id) ? like_icon_fill : like_icon
+            }
             alt="like_icon"
           />
         </div>

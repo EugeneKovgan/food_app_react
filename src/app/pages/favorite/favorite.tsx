@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import {
   FavoriteTitle,
-  // Filter,
+  Filter,
   FreeDelivery,
   Header,
-  // Search,
+  Search,
 } from '@components/ui-kit';
 import { useAppSelector } from '@core/hooks';
 import { FoodContainer } from '@pages/food-container';
@@ -20,27 +20,52 @@ export const Favorite: React.FC = () => {
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
-  const [filteredData, setFilteredData] = useState([]);
+  const [btnFilter, setBtnFilter] = useState<string>('');
+  const [search, setSearch] = useState<string>('');
+  const [favoriteData, setFavoriteData] = useState<[]>([]);
+  const [filteredData, setFilteredData] = useState<any>([]);
 
   useEffect(() => {
-    if (isSuccess && currentUser) {
-      setFilteredData(
-        data.filter((prod: IProduct) => {
-          return favoriteList?.filter((favorite: string) => {
-            return favorite === prod.id ? prod : '';
-          });
-        }),
+    if (isSuccess && favoriteList) {
+      setFavoriteData(
+        data.filter((product: IProduct) => favoriteList.includes(product.id)),
       );
     }
   }, [data]);
 
-  // console.log(filteredData);
+  useEffect(() => {
+    setFilteredData(favoriteData);
+  }, [favoriteData]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      setFilteredData(
+        favoriteData.filter((item: IProduct) => {
+          return search.toLowerCase() === ''
+            ? item
+            : item.productName.toLowerCase().includes(search);
+        }),
+      );
+    }
+  }, [search]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      setFilteredData(
+        favoriteData.filter((item: IProduct) => {
+          return btnFilter.toLowerCase() === ''
+            ? item
+            : item.productCategory.toLowerCase().includes(btnFilter);
+        }),
+      );
+    }
+  }, [btnFilter]);
 
   return (
     <div className="favorite-page">
       <Header />
-      {/* <Search /> */}
-      {/* <Filter /> */}
+      <Search setSearch={setSearch} />
+      <Filter setBtnFilter={setBtnFilter} />
       <FreeDelivery />
       <FavoriteTitle />
       <FoodContainer data={filteredData} isLoading={isLoading} />
