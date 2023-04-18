@@ -9,6 +9,8 @@ import './styles.scss';
 export const ProfileBlock: React.FC = () => {
   const currentUser = useAppSelector(state => state.user.user);
 
+  console.log(currentUser);
+
   return (
     <div className="profile-block">
       <div className="profile-block__title">My Profile</div>
@@ -39,13 +41,22 @@ export const ProfileBlock: React.FC = () => {
       </div>
 
       <nav className="profile-block__btn-block">
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/account"
+          className="profile-block__btn-block__btn"
+        >
           Account
         </NavLink>
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/payment"
+          className="profile-block__btn-block__btn"
+        >
           Payment
         </NavLink>
-        <NavLink to="/profile" className="profile-block__btn-block__btn">
+        <NavLink
+          to="/profile/history"
+          className="profile-block__btn-block__btn"
+        >
           History
         </NavLink>
       </nav>

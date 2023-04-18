@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import { useAppDispatch } from '@core/hooks';
 import { useCreateUserMutation, useGetCurrentUserQuery } from '@store/users';
 import { setToken, setUser } from '@store/users/models/auth-slice';
@@ -62,9 +62,16 @@ export const RegistrationForm: React.FC = () => {
     console.log('Failed:', errorInfo);
   };
 
+  const warning = () => {
+    Modal.warning({
+      title: 'Warning message',
+      content: 'Some fields completed incorrectly',
+    });
+  };
+
   useEffect(() => {
     if (isError) {
-      alert('check all fields');
+      warning();
     }
   }, [isError]);
 

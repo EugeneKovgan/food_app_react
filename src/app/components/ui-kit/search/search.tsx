@@ -6,7 +6,11 @@ import filter_icon from 'assets/images/icons/filter.svg';
 
 import './styles.scss';
 
-export const Search: React.FC = () => {
+type PropsType = {
+  setSearch: (value: string) => void;
+};
+
+export const Search: React.FC<PropsType> = ({ setSearch }) => {
   return (
     <div className="container">
       <div className="search">
@@ -15,6 +19,7 @@ export const Search: React.FC = () => {
           size="large"
           placeholder="Search food . . ."
           prefix={<SearchOutlined />}
+          onChange={e => setSearch(e.target.value)}
         />
         <button type="button" className="search__btn">
           <img src={filter_icon} alt="filter_icon" />

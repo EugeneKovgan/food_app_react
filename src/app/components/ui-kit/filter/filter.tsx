@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
+import React from 'react';
 import { BTN_NAMES } from './models';
 
 import './styles.scss';
 
-export const Filter: React.FC = () => {
-  const [btnFilter, setBtnFilter] = useState('fastFood');
+type PropsType = {
+  setBtnFilter: (value: string) => void;
+};
 
-  const onChange = ({ target: { value } }: RadioChangeEvent) => {
-    setBtnFilter(value);
-  };
-
+export const Filter: React.FC<PropsType> = ({ setBtnFilter }) => {
   return (
     <div className="filter">
-      <Radio.Group
-        className="filter__btn-block"
-        options={BTN_NAMES}
-        onChange={onChange}
-        value={btnFilter}
-        optionType="button"
-        buttonStyle="solid"
-      />
+      <div className="filter__btn-block">
+        {BTN_NAMES.map(btn => {
+          return (
+            <button
+              onClick={() => setBtnFilter(btn.value)}
+              type="button"
+              value={btn.value}
+              key={btn.id}
+            >
+              {btn.label}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

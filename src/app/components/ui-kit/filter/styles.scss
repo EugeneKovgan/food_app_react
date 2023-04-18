@@ -5,13 +5,13 @@
   flex-direction: row;
   align-items: center;
   padding: 20px 0 20px 20px;
-  overflow: hidden;
+  overflow: auto;
 
   &__btn-block {
     display: flex;
     gap: 1rem;
 
-    & label {
+    & button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -22,35 +22,17 @@
       width: 90px;
       height: 30px;
       border: none;
+      background-color: $base-white-color;
+      color: $base-text-color;
 
-      & :checked,
-      & :active {
+      &:hover,
+      &:active {
         background: $base-yellow-color;
-      }
-
-      &:first-child,
-      &:last-child {
-        border-radius: 20px;
       }
     }
 
     & span {
       color: $base-text-color;
     }
-  }
-
-  & .ant-radio-group-solid :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    color: $base-text-color;
-    background: $base-yellow-color;
-    border: none;
-  }
-
-  & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:first-child,
-  :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:last-child {
-    border-radius: 20px;
-  }
-
-  & :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-button-wrapper:not(:first-child)::before {
-    background-color: $base-background-color;
   }
 }

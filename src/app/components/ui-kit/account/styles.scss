@@ -1,0 +1,17 @@
+@import 'src/styles/theme/index.scss';
+
+.account {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      color: $base-text-color;
+      padding: 10px 0;
+    }
+  }
+}

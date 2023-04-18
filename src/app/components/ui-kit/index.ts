@@ -13,5 +13,4 @@ export * from './total-price';
 export * from './notification-card';
 export * from './notification-title';
 export * from './profile-block';
-export * from './modal-error';
 export * from './payment-method';
