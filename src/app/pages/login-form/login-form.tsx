@@ -64,6 +64,7 @@ export const LoginForm: React.FC = () => {
     if (isSuccess) {
       dispatch(setToken(loggedUser.token));
       redirect('/favorite');
+      console.log(allLoggedUser.user);
     }
   }, [isSuccess]);
 

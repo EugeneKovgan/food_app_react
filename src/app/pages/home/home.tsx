@@ -11,11 +11,6 @@ export const Home: React.FC = () => {
   const [btnFilter, setBtnFilter] = useState<string>('');
   const [search, setSearch] = useState<string>('');
   const [filteredData, setFilteredData] = useState([]);
-  // const [animation, setAnimation] = useState(false);
-
-  // useEffect(() => {
-  //   setAnimation(true);
-  // }, []);
 
   useEffect(() => {
     if (isSuccess) {
@@ -52,11 +47,7 @@ export const Home: React.FC = () => {
       <Header />
       <Search setSearch={setSearch} />
       <Filter setBtnFilter={setBtnFilter} />
-      <FoodContainer
-        data={filteredData}
-        isLoading={isLoading}
-        // animation={animation}
-      />
+      <FoodContainer data={filteredData} isLoading={isLoading} />
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import React from 'react';
+import cross_icon from 'assets/images/icons/close.svg';
 import { config } from '@core/config';
 import { useAppDispatch } from '@core/hooks';
 import {
   decreaseQuantity,
   increaseQuantity,
   InitialStateType,
+  removeGoods,
 } from '@store/basket';
 
 import './styles.scss';
@@ -27,7 +29,17 @@ export const OrderCard: React.FC<PropsType> = ({ good }) => {
         />
       </div>
       <div className="order-card__description">
-        <div className="order-card__description__title">{good.productName}</div>
+        <div className="order-card__description__title">
+          {good.productName}
+          <button
+            type="button"
+            onClick={() => {
+              dispatch(removeGoods(good.id));
+            }}
+          >
+            <img src={cross_icon} alt="cross_icon" />
+          </button>
+        </div>
         <div className="order-card__description__food-category">
           {good.productCategory}
         </div>

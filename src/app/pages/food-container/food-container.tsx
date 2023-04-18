@@ -6,17 +6,12 @@ import { IProduct } from '@store/products/models';
 
 import './styles.scss';
 
-type PropsType = {
-  data: IProduct[];
-  isLoading: boolean;
-  // animation: boolean
-};
+// type PropsType = {
+//   data: IProduct[];
+//   isLoading: boolean;
+// };
 
-export const FoodContainer: React.FC<PropsType> = ({
-  data,
-  isLoading,
-  // animation,
-}) => {
+export const FoodContainer: React.FC<any> = ({ data, isLoading }) => {
   const nodeRef = useRef(null);
 
   return (
@@ -24,7 +19,6 @@ export const FoodContainer: React.FC<PropsType> = ({
       {isLoading ? (
         <Loader />
       ) : (
-        // <CSSTransition in={animation} timeout={500} classNames="my-node">
         <div className="food-container" ref={nodeRef}>
           {data.length > 0 ? (
             data.map((product: IProduct) => {
@@ -38,7 +32,6 @@ export const FoodContainer: React.FC<PropsType> = ({
             </div>
           )}
         </div>
-        // </CSSTransition>
       )}
     </div>
   );

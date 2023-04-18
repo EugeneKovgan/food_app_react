@@ -3,6 +3,9 @@ export interface IUserRequest {
   userName: string;
   email: string;
   avatar: IAvatar;
+  address: string;
+  cardNumber: string[];
+  favoritesProducts: string[];
 }
 
 export interface IAvatar {
@@ -15,14 +18,15 @@ export interface IUserResponse {
   token: string;
 }
 
-export interface IUserFull {
-  userName: string;
-  name: string;
-  surname: string;
-  email: string;
-  phoneNumber: string;
-  address: string;
-  avatar: IAvatar;
-  cardNumber: string[];
-  password: string;
-}
+// export interface IUserFull {
+//   userName: string;
+//   name: string;
+//   surname: string;
+//   email: string;
+//   phoneNumber: string;
+//   address: string;
+//   avatar: IAvatar;
+//   cardNumber: string[];
+//   favoritesProducts: string[];
+//   password: string;
+// }

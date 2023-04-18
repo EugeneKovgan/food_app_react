@@ -9,6 +9,8 @@ import './styles.scss';
 export const ProfileBlock: React.FC = () => {
   const currentUser = useAppSelector(state => state.user.user);
 
+  console.log(currentUser);
+
   return (
     <div className="profile-block">
       <div className="profile-block__title">My Profile</div>

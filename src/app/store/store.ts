@@ -1,5 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { persistReducer, persistStore } from 'redux-persist';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 import { userReducer } from './users/models/auth-slice';
 import { basketReducer } from './basket';
@@ -23,7 +32,11 @@ export const store = configureStore({
     basket: basketReducer,
   },
   middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware({ serializableCheck: false }),
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
     authApi.middleware,
     productsApi.middleware,
     couriersApi.middleware,
