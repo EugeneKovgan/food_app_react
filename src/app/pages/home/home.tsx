@@ -8,10 +8,14 @@ import './styles.scss';
 
 export const Home: React.FC = () => {
   const { data, isLoading, isSuccess } = useGetProductsQuery('products');
-  const [btnFilter, setBtnFilter] = useState<string>('fastFood');
+  const [btnFilter, setBtnFilter] = useState<string>('');
   const [search, setSearch] = useState<string>('');
-  // const [filter, setFilter] = useState('');
-  const [filteredData, setFilteredData] = useState<[]>([]);
+  const [filteredData, setFilteredData] = useState([]);
+  // const [animation, setAnimation] = useState(false);
+
+  // useEffect(() => {
+  //   setAnimation(true);
+  // }, []);
 
   useEffect(() => {
     if (isSuccess) {
@@ -31,12 +35,28 @@ export const Home: React.FC = () => {
     }
   }, [search]);
 
+  useEffect(() => {
+    if (isSuccess) {
+      setFilteredData(
+        data.filter((item: IProduct) => {
+          return btnFilter.toLowerCase() === ''
+            ? item
+            : item.productCategory.toLowerCase().includes(btnFilter);
+        }),
+      );
+    }
+  }, [btnFilter]);
+
   return (
     <div className="home-page">
       <Header />
-      <Search search={search} setSearch={setSearch} />
-      <Filter btnFilter={btnFilter} setBtnFilter={setBtnFilter} />
-      <FoodContainer data={filteredData} isLoading={isLoading} />
+      <Search setSearch={setSearch} />
+      <Filter setBtnFilter={setBtnFilter} />
+      <FoodContainer
+        data={filteredData}
+        isLoading={isLoading}
+        // animation={animation}
+      />
     </div>
   );
 };

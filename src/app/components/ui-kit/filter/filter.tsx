@@ -3,25 +3,18 @@ import { BTN_NAMES } from './models';
 
 import './styles.scss';
 
-// type PropsType = {
-//   btnFilter: string;
-//   setBtnFilter: any;
-// };
+type PropsType = {
+  setBtnFilter: (value: string) => void;
+};
 
-export const Filter: React.FC<any> = ({ btnFilter, setBtnFilter }) => {
-  const onChange = ({ target: { value } }: any) => {
-    console.log(btnFilter);
-
-    setBtnFilter(value);
-  };
-
+export const Filter: React.FC<PropsType> = ({ setBtnFilter }) => {
   return (
     <div className="filter">
       <div className="filter__btn-block">
         {BTN_NAMES.map(btn => {
           return (
             <button
-              onClick={onChange}
+              onClick={() => setBtnFilter(btn.value)}
               type="button"
               value={btn.value}
               key={btn.id}

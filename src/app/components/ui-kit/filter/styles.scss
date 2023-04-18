@@ -23,6 +23,7 @@
       height: 30px;
       border: none;
       background-color: $base-white-color;
+      color: $base-text-color;
 
       &:hover,
       &:active {
@@ -34,6 +35,4 @@
       color: $base-text-color;
     }
   }
-
-
 }
