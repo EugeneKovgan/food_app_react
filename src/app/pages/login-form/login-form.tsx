@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Modal } from 'antd';
 import { Loader } from '@components/ui-kit';
-import { useAppDispatch } from '@core/hooks';
+import { useAppDispatch, useAppSelector } from '@core/hooks';
 import { useGetCurrentUserQuery, useLoginUserMutation } from '@store/users';
 import { setToken, setUser } from '@store/users/models/auth-slice';
 
@@ -11,6 +11,7 @@ import './styles.scss';
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const selectedToken: string = useAppSelector(state => state.user.token);
 
   const onEmailChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +33,7 @@ export const LoginForm: React.FC = () => {
   const [loginUser, { data: loggedUser, isLoading, isSuccess, isError }] =
     useLoginUserMutation();
 
-  const { data: allLoggedUser } = useGetCurrentUserQuery(loggedUser?.token);
+  const { data: allLoggedUser } = useGetCurrentUserQuery(selectedToken);
 
   const onFinish = async () => {
     if (email && password) {
@@ -64,7 +65,6 @@ export const LoginForm: React.FC = () => {
     if (isSuccess) {
       dispatch(setToken(loggedUser.token));
       redirect('/favorite');
-      console.log(allLoggedUser.user);
     }
   }, [isSuccess]);
 

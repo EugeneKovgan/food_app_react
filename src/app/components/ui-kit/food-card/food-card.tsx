@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import like_icon from 'assets/images/icons/favorite.svg';
 import like_icon_fill from 'assets/images/icons/favorite-fill.svg';
@@ -7,6 +7,7 @@ import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
 import { addToBasket } from '@store/basket';
 import { IProduct } from '@store/products/models';
+import { likeToggle } from '@store/users/models/auth-slice';
 
 import './styles.scss';
 
@@ -20,10 +21,23 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
+  const [currentProductLike, setCurrentProductLike] = useState(
+    favoriteList?.includes(product.id),
+  );
   const dispatch = useDispatch();
+
   const addItemToCard = () => {
     dispatch(addToBasket(product));
   };
+
+  const toggleLike = () => {
+    dispatch(likeToggle(product.id));
+    console.log(product.id);
+  };
+
+  useEffect(() => {
+    setFavoriteList(currentUser?.favoritesProducts);
+  }, [toggleLike]);
 
   return (
     <div className="food-card">
@@ -33,15 +47,17 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
           src={`${config.API_URL}/${product.picture?.path}`}
           alt="img"
         />
-        <div className="food-card__img-block__like-block">
+        <button
+          onClick={() => toggleLike()}
+          type="button"
+          className="food-card__img-block__like-block"
+        >
           <img
             className="food-card__img-block__like-block__img"
-            src={
-              favoriteList?.includes(product.id) ? like_icon_fill : like_icon
-            }
+            src={currentProductLike ? like_icon_fill : like_icon}
             alt="like_icon"
           />
-        </div>
+        </button>
       </div>
       <div className="food-card__description">
         <div className="food-card__description__title">
