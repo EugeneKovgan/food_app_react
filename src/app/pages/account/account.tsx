@@ -1,7 +1,6 @@
 import React from 'react';
-import { AntCloudOutlined, BulbOutlined } from '@ant-design/icons';
-import { Switch } from 'antd';
-import { UploadAvatar } from '@components/ui-kit';
+import { AccountTitle } from '@components/ui-kit/account-header';
+import { AccountUpdateForm } from './account-update-form';
 
 import './styles.scss';
 
@@ -12,16 +11,8 @@ export const Account: React.FC = () => {
     // ) : (
     <div className="container">
       <div className="account">
-        <div className="account__header">
-          <div className="account__header__title">My account</div>
-          <Switch
-            checkedChildren={<BulbOutlined />}
-            unCheckedChildren={<AntCloudOutlined />}
-            defaultChecked
-          />
-        </div>
-
-        <UploadAvatar />
+        <AccountTitle />
+        <AccountUpdateForm />
       </div>
     </div>
   );

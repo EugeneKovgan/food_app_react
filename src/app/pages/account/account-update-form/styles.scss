@@ -1,0 +1,16 @@
+@import 'src/styles/theme/index.scss';
+
+.account-update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $base-text-color;
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {
+    color: $base-text-color;
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-wrapper {
+    color: $base-text-color;
+  }
+}

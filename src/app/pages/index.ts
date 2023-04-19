@@ -1,7 +1,5 @@
 export * from './login';
-export * from './login/login-form';
 export * from './registration';
-export * from './registration/registration-form';
 export * from './food-container';
 export * from './my-order';
 export * from './home';
