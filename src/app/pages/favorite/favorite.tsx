@@ -30,7 +30,7 @@ export const Favorite: React.FC = () => {
       setFavoriteData(
         data.filter((product: IProduct) => favoriteList.includes(product.id)),
       );
-      // setFilteredData(favoriteData);
+      setFilteredData(favoriteData);
     }
   }, [data]);
 
@@ -45,6 +45,10 @@ export const Favorite: React.FC = () => {
       );
     }
   }, [search]);
+
+  useEffect(() => {
+    setFilteredData(favoriteData);
+  }, [favoriteData]);
 
   useEffect(() => {
     if (isSuccess) {

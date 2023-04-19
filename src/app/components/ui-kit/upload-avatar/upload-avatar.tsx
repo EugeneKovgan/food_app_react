@@ -1,11 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
-import {
-  AntCloudOutlined,
-  BulbOutlined,
-  LoadingOutlined,
-  PlusOutlined,
-} from '@ant-design/icons';
-import { message, Switch, Upload } from 'antd';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { message, Upload } from 'antd';
 import type { UploadChangeParam } from 'antd/es/upload';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
@@ -34,7 +30,7 @@ const beforeUpload = (file: RcFile) => {
   return isJpgOrPng && isLt2M;
 };
 
-export const Account: React.FC = () => {
+export const UploadAvatar: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string>();
 
@@ -59,43 +55,27 @@ export const Account: React.FC = () => {
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
+      <div>Upload</div>
     </div>
   );
 
   return (
-    //  isLoading ? (
-    // <Loader />
-    // ) : (
-    <div className="container">
-      <div className="account">
-        <div className="account__header">
-          <div className="account__header__title">My account</div>
-          <Switch
-            checkedChildren={<BulbOutlined />}
-            unCheckedChildren={<AntCloudOutlined />}
-            defaultChecked
-          />
-        </div>
-
-        <div className="account__account-block">
-          <Upload
-            name="avatar"
-            listType="picture-circle"
-            className="avatar-uploader"
-            showUploadList={false}
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            beforeUpload={beforeUpload}
-            onChange={handleChange}
-          >
-            {imageUrl ? (
-              <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
-            ) : (
-              uploadButton
-            )}
-          </Upload>
-        </div>
-      </div>
+    <div className="upload-avatar">
+      <Upload
+        name="avatar"
+        listType="picture-circle"
+        className="avatar-uploader"
+        showUploadList={false}
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        beforeUpload={beforeUpload}
+        onChange={handleChange}
+      >
+        {imageUrl ? (
+          <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
+        ) : (
+          uploadButton
+        )}
+      </Upload>
     </div>
   );
 };

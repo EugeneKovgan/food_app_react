@@ -7,7 +7,6 @@ import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
 import { addToBasket } from '@store/basket';
 import { IProduct } from '@store/products/models';
-import { likeToggle } from '@store/users/models/auth-slice';
 
 import './styles.scss';
 
@@ -30,9 +29,11 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
     dispatch(addToBasket(product));
   };
 
-  const toggleLike = () => {
-    dispatch(likeToggle(product.id));
-    console.log(product.id);
+  const toggleLike = async () => {
+    if (currentUser?.id && product.id) {
+      console.log(product.id);
+      console.log(currentUser?.id);
+    }
   };
 
   useEffect(() => {

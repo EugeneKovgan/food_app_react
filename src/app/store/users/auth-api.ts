@@ -35,6 +35,15 @@ export const authApi = createApi({
         };
       },
     }),
+    updateLikes: builder.mutation({
+      query(data) {
+        return {
+          url: `auth/profile/likes`,
+          method: 'PUT',
+          body: data,
+        };
+      },
+    }),
   }),
 });
 
@@ -43,4 +52,5 @@ export const {
   useLoginUserMutation,
   useGetCurrentUserQuery,
   useUpdateUserMutation,
+  useUpdateLikesMutation,
 } = authApi;

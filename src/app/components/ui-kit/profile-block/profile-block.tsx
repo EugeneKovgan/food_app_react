@@ -29,13 +29,13 @@ export const ProfileBlock: React.FC = () => {
 
         <div className="profile-block__description__main-block">
           <div className="profile-block__description__main-block__name">
-            {currentUser?.userName}
+            {`${currentUser?.name} ${currentUser?.surname}`}
           </div>
           <div className="profile-block__description__main-block__email">
             {currentUser?.email}
           </div>
           <div className="profile-block__description__main-block__id">
-            User ID: {currentUser?.id}
+            User ID: {currentUser?.userId}
           </div>
         </div>
       </div>

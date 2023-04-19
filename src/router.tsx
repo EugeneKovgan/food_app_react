@@ -1,14 +1,17 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { AuthLayout } from '@layouts/auth-layout';
-import { Favorite } from '@pages/favorite/favorite';
-import { Home } from '@pages/home';
-import { Login } from '@pages/login';
-import { MyOrder } from '@pages/my-order';
-import { Notification } from '@pages/notification';
-import { ProfileAccount, ProfileHistory, ProfilePayment } from '@pages/profile';
-import { Registration } from '@pages/registration';
-import { MainLayout } from './app/layouts';
+import { OrderProgress } from '@components/ui-kit';
+import {
+  Account,
+  Favorite,
+  Home,
+  Login,
+  MyOrder,
+  Notification,
+  PaymentBlock,
+  Registration,
+} from '@pages/index';
+import { AuthLayout, MainLayout, ProfileLayout } from './app/layouts';
 
 export const router = createBrowserRouter([
   {
@@ -33,12 +36,12 @@ export const router = createBrowserRouter([
   },
   {
     path: 'profile/',
-    element: <MainLayout />,
+    element: <ProfileLayout />,
     children: [
-      { index: true, element: <ProfilePayment /> },
-      { path: 'payment', element: <ProfilePayment /> },
-      { path: 'account', element: <ProfileAccount /> },
-      { path: 'history', element: <ProfileHistory /> },
+      { index: true, element: <PaymentBlock /> },
+      { path: 'payment', element: <PaymentBlock /> },
+      { path: 'account', element: <Account /> },
+      { path: 'history', element: <OrderProgress /> },
     ],
   },
 ]);
