@@ -6,6 +6,15 @@
   gap: 1rem;
   color: $base-text-color;
 
+  &__btn-block__save-btn {
+    background-color: #88BC35;
+    margin-right: 2rem;
+  }
+
+  &__btn-block__delete-btn {
+    background-color: #FF806C;
+  }
+
   & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {
     color: $base-text-color;
   }

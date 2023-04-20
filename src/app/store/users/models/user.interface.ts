@@ -7,7 +7,7 @@ export interface IUserRequest {
   surname: string;
   phoneNumber: string;
   avatar: IAvatar;
-  address: string;
+  address: IAddress;
   cardNumber: string[];
   favoritesProducts: string[];
 }
@@ -15,6 +15,11 @@ export interface IUserRequest {
 export interface IAvatar {
   id: string;
   path: string;
+}
+
+export interface IAddress {
+  city: string;
+  street: string;
 }
 
 export interface IUserResponse {
