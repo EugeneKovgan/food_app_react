@@ -6,13 +6,28 @@
   gap: 1rem;
   color: $base-text-color;
 
-  &__btn-block__save-btn {
-    background-color: #88BC35;
-    margin-right: 2rem;
-  }
+  &__btn-block {
+    &__save-btn {
+      background-color: #88BC35;
+      margin-right: 1rem;
+    }
 
-  &__btn-block__delete-btn {
-    background-color: #FF806C;
+    &__delete-btn {
+      background-color: #FF806C;
+      margin-right: 2rem;
+    }
+
+    &__save-btn,
+    &__delete-btn {
+      box-shadow: $base-shadow-btn;
+      border-radius: 15px;
+      padding: 0.75rem;
+      border: none;
+
+      &:active {
+        box-shadow: $base-shadow-active-btn;
+      }
+    }
   }
 
   & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {

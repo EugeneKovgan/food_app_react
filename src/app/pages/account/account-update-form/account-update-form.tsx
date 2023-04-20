@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Select, Space, Upload } from 'antd';
+import { Checkbox, Form, Input, Select, Space, Upload } from 'antd';
 import { useAppDispatch, useAppSelector } from '@core/hooks';
 import { useRemoveUserMutation, useUpdateUserMutation } from '@store/users';
 import { setUser } from '@store/users/models/auth-slice';
@@ -210,18 +210,19 @@ export const AccountUpdateForm: React.FC = () => {
           </Space.Compact>
         </Form.Item>
         <Form.Item className="account-update-form__btn-block">
-          <Button
+          <button
+            type="submit"
             className="account-update-form__btn-block__save-btn"
-            htmlType="submit"
           >
             Save
-          </Button>
-          <Button
-            className="account-update-form__btn-block__delete-btn"
+          </button>
+          <button
             onClick={() => removeUser()}
+            type="button"
+            className="account-update-form__btn-block__delete-btn"
           >
             Delete account
-          </Button>
+          </button>
         </Form.Item>
       </Form>
     </div>
