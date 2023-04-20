@@ -2,10 +2,13 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlusOutlined } from '@ant-design/icons';
-import { Checkbox, Form, Input, Select, Space, Upload } from 'antd';
+import { Button, Checkbox, Form, Input, Select, Space, Upload } from 'antd';
 import { useAppDispatch, useAppSelector } from '@core/hooks';
-import { useRemoveUserMutation, useUpdateUserMutation } from '@store/users';
-import { setUser } from '@store/users/models/auth-slice';
+import {
+  setUser,
+  useRemoveUserMutation,
+  useUpdateUserMutation,
+} from '@store/users';
 
 import './styles.scss';
 
@@ -43,6 +46,7 @@ export const AccountUpdateForm: React.FC = () => {
 
   const removeUser = async () => {
     await removedUser({ id: currentUser?.id });
+    localStorage.removeItem('persist:root');
     redirect('/auth');
   };
 
@@ -210,19 +214,18 @@ export const AccountUpdateForm: React.FC = () => {
           </Space.Compact>
         </Form.Item>
         <Form.Item className="account-update-form__btn-block">
-          <button
-            type="submit"
+          <Button
             className="account-update-form__btn-block__save-btn"
+            htmlType="submit"
           >
             Save
-          </button>
-          <button
-            onClick={() => removeUser()}
-            type="button"
+          </Button>
+          <Button
             className="account-update-form__btn-block__delete-btn"
+            onClick={() => removeUser()}
           >
             Delete account
-          </button>
+          </Button>
         </Form.Item>
       </Form>
     </div>

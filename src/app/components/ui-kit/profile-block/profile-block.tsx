@@ -39,6 +39,8 @@ export const ProfileBlock: React.FC = () => {
           </div>
           <div className="profile-block__description__main-block__id">
             User ID: {currentUser?.userId}
+            <br />
+            User: {currentUser?.id}
           </div>
         </div>
       </div>

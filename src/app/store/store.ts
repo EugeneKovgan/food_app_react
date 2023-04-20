@@ -10,11 +10,10 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
-import { userReducer } from './users/models/auth-slice';
 import { basketReducer } from './basket';
 import { couriersApi } from './couriers';
 import { productsApi } from './products';
-import { authApi } from './users';
+import { authApi, userReducer } from './users';
 
 const persistConfig = {
   key: 'root',

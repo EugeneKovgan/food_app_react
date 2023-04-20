@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Modal } from 'antd';
-import { useAppDispatch } from '@core/hooks';
-import { useCreateUserMutation, useGetCurrentUserQuery } from '@store/users';
-import { setToken, setUser } from '@store/users/models/auth-slice';
+import { useCreateUserMutation } from '@store/users';
 
 import './styles.scss';
 
@@ -42,17 +40,12 @@ export const RegistrationForm: React.FC = () => {
   );
 
   const redirect = useNavigate();
-  const dispatch = useAppDispatch();
 
-  const [createdUser, { data: currentUser, isSuccess, isError }] =
-    useCreateUserMutation();
-
-  const { data: allCreatedUser } = useGetCurrentUserQuery(currentUser?.token);
+  const [createdUser, { isSuccess, isError }] = useCreateUserMutation();
 
   const onFinish = async () => {
     if (userName && email && password && confirmPassword) {
       await createdUser({ userName, email, password });
-      dispatch(setUser(allCreatedUser.user));
     } else {
       alert('All gaps must be field !');
     }
@@ -77,7 +70,6 @@ export const RegistrationForm: React.FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      dispatch(setToken(currentUser.token));
       redirect('/favorite');
     }
   }, [isSuccess]);

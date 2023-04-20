@@ -2,16 +2,14 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Modal } from 'antd';
 import { Loader } from '@components/ui-kit';
-import { useAppDispatch, useAppSelector } from '@core/hooks';
-import { useGetCurrentUserQuery, useLoginUserMutation } from '@store/users';
-import { setToken, setUser } from '@store/users/models/auth-slice';
+import { useAppDispatch } from '@core/hooks';
+import { logout, setToken, useLoginUserMutation } from '@store/users';
 
 import './styles.scss';
 
 export const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const selectedToken: string = useAppSelector(state => state.user.token);
 
   const onEmailChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,15 +28,16 @@ export const LoginForm: React.FC = () => {
   const redirect = useNavigate();
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(logout());
+  }, []);
+
   const [loginUser, { data: loggedUser, isLoading, isSuccess, isError }] =
     useLoginUserMutation();
-
-  const { data: allLoggedUser } = useGetCurrentUserQuery(selectedToken);
 
   const onFinish = async () => {
     if (email && password) {
       await loginUser({ email, password });
-      dispatch(setUser(allLoggedUser.user));
     } else {
       alert('login of password is empty');
     }

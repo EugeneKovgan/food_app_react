@@ -18,7 +18,7 @@ export const authApi = createApi({
         };
       },
     }),
-    getCurrentUser: builder.query({
+    getCurrentUser: builder.mutation({
       query: () => {
         return {
           url: 'auth/profile',
@@ -58,7 +58,7 @@ export const authApi = createApi({
 export const {
   useCreateUserMutation,
   useLoginUserMutation,
-  useGetCurrentUserQuery,
+  useGetCurrentUserMutation,
   useUpdateUserMutation,
   useRemoveUserMutation,
 } = authApi;
