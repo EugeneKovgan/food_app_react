@@ -1,6 +1,6 @@
 import React from 'react';
 import { LogoBlock } from '@components/ui-kit';
-import { LoginForm } from '@pages/login-form';
+import { LoginForm } from '@pages/login/login-form';
 
 import './styles.scss';
 

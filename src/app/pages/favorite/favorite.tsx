@@ -22,7 +22,7 @@ export const Favorite: React.FC = () => {
   );
   const [btnFilter, setBtnFilter] = useState<string>('');
   const [search, setSearch] = useState<string>('');
-  const [favoriteData, setFavoriteData] = useState<[]>([]);
+  const [favoriteData, setFavoriteData] = useState<any>([]);
   const [filteredData, setFilteredData] = useState<any>([]);
 
   useEffect(() => {
@@ -30,12 +30,9 @@ export const Favorite: React.FC = () => {
       setFavoriteData(
         data.filter((product: IProduct) => favoriteList.includes(product.id)),
       );
+      setFilteredData(favoriteData);
     }
   }, [data]);
-
-  useEffect(() => {
-    setFilteredData(favoriteData);
-  }, [favoriteData]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -48,6 +45,10 @@ export const Favorite: React.FC = () => {
       );
     }
   }, [search]);
+
+  useEffect(() => {
+    setFilteredData(favoriteData);
+  }, [favoriteData]);
 
   useEffect(() => {
     if (isSuccess) {

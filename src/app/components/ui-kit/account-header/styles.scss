@@ -1,0 +1,29 @@
+@import 'src/styles/theme/index.scss';
+
+.account {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      color: $base-text-color;
+      padding: 10px 0;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+      background: $base-yellow-color;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-switch.ant-switch-checked {
+      background: $base-yellow-color;
+    }
+
+    & :where(.css-dev-only-do-not-override-1vtf12y).ant-switch:hover:not(.ant-switch-disabled) {
+      background: #4096ff;
+    }
+  }
+}

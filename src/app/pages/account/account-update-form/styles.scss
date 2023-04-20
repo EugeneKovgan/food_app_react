@@ -1,0 +1,49 @@
+@import 'src/styles/theme/index.scss';
+
+.account-update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $base-text-color;
+
+  &__btn-block {
+    display: flex;
+    flex-direction: row;
+
+    &__save-btn {
+      background-color: #88BC35;
+      margin-right: 1rem;
+    }
+
+    &__delete-btn {
+      background-color: #FF806C;
+      margin-right: 2rem;
+    }
+
+    &__save-btn,
+    &__delete-btn {
+      display: flex;
+      align-items: center;
+      box-shadow: $base-shadow-btn;
+      border-radius: 15px;
+      padding: 0.75rem;
+      border: none;
+
+      &:active {
+        box-shadow: $base-shadow-active-btn;
+      }
+    }
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-control-input-content {
+    display: flex;
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {
+    color: $base-text-color;
+  }
+
+  & :where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-wrapper {
+    color: $base-text-color;
+  }
+}

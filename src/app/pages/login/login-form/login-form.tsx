@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Input, Modal } from 'antd';
 import { Loader } from '@components/ui-kit';
 import { useAppDispatch } from '@core/hooks';
-import { useGetCurrentUserQuery, useLoginUserMutation } from '@store/users';
-import { setToken, setUser } from '@store/users/models/auth-slice';
+import { logout, setToken, useLoginUserMutation } from '@store/users';
 
 import './styles.scss';
 
@@ -29,15 +28,16 @@ export const LoginForm: React.FC = () => {
   const redirect = useNavigate();
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(logout());
+  }, []);
+
   const [loginUser, { data: loggedUser, isLoading, isSuccess, isError }] =
     useLoginUserMutation();
-
-  const { data: allLoggedUser } = useGetCurrentUserQuery(loggedUser?.token);
 
   const onFinish = async () => {
     if (email && password) {
       await loginUser({ email, password });
-      dispatch(setUser(allLoggedUser.user));
     } else {
       alert('login of password is empty');
     }
@@ -63,8 +63,7 @@ export const LoginForm: React.FC = () => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(setToken(loggedUser.token));
-      redirect('/favorite');
-      console.log(allLoggedUser.user);
+      redirect('/');
     }
   }, [isSuccess]);
 
