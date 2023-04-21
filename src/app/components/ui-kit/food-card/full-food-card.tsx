@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import like_icon from 'assets/images/icons/favorite.svg';
 import like_icon_fill from 'assets/images/icons/favorite-fill.svg';
 import { config } from '@core/config';
@@ -17,10 +18,9 @@ type PropsType = {
   key: string;
 };
 
-export const FoodCard: React.FC<PropsType> = ({ product }) => {
+export const FullFoodCard: React.FC<PropsType> = ({ product }) => {
   const currentUser = useAppSelector(state => state.user.user);
   const [updateUserList] = useUpdateLikesMutation();
-  // const [fullScreen, setFullScreen] = useState(false);
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
@@ -28,17 +28,17 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
     favoriteList?.includes(product.id),
   );
   const dispatch = useDispatch();
+  const redirect = useNavigate();
 
   const addItemToCard = () => {
     dispatch(addToBasket(product));
   };
 
   const toggleLike = async () => {
-    if (currentUser?.id && product?.id) {
-      await updateUserList({
-        id: currentUser?.id,
-        data: { productId: product?.id },
-      });
+    if (currentUser?.id && product.id) {
+      console.log(`current user - ${currentUser?.id}`);
+      console.log(`product id - ${product?.id}`);
+      await updateUserList({ id: currentUser?.id, data: product?.id });
     }
   };
 
@@ -46,17 +46,10 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
     setFavoriteList(currentUser?.favoritesProducts);
   }, [toggleLike]);
 
-  useEffect(() => {
-    setFavoriteList(currentUser?.favoritesProducts);
-  }, [favoriteList]);
-
-  // const showProduct = () => {
-  //   if (!fullScreen) {
-  //     setFullScreen(true);
-  //   } else setFullScreen(true);
-
-  //   console.log(fullScreen);
-  // };
+  const showProduct = () => {
+    console.log('jj');
+    redirect('/');
+  };
 
   return (
     <div className="food-card">
@@ -65,7 +58,7 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
           className="food-card__img-block__bg"
           src={`${config.API_URL}/${product.picture?.path}`}
           alt="img"
-          // onClick={showProduct}
+          onClick={showProduct}
         />
         <button
           onClick={() => toggleLike()}
