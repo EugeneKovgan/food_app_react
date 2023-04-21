@@ -20,7 +20,6 @@ type PropsType = {
 export const FoodCard: React.FC<PropsType> = ({ product }) => {
   const currentUser = useAppSelector(state => state.user.user);
   const [updateUserList] = useUpdateLikesMutation();
-  // const [fullScreen, setFullScreen] = useState(false);
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
@@ -50,14 +49,6 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
     setFavoriteList(currentUser?.favoritesProducts);
   }, [favoriteList]);
 
-  // const showProduct = () => {
-  //   if (!fullScreen) {
-  //     setFullScreen(true);
-  //   } else setFullScreen(true);
-
-  //   console.log(fullScreen);
-  // };
-
   return (
     <div className="food-card">
       <div className="food-card__img-block">
@@ -65,7 +56,6 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
           className="food-card__img-block__bg"
           src={`${config.API_URL}/${product.picture?.path}`}
           alt="img"
-          // onClick={showProduct}
         />
         <button
           onClick={() => toggleLike()}
