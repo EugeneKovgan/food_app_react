@@ -57,7 +57,6 @@ export const FoodCard: React.FC<PropsType> = ({
   const fullCardToggle = () => {
     setFullCard(true);
     setCurrentProduct(product);
-    console.log(true);
   };
 
   return (

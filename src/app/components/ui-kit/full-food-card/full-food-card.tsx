@@ -9,7 +9,13 @@ import start_icon from 'assets/images/icons/start.svg';
 import time_icon from 'assets/images/icons/time.svg';
 import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
-import { addToBasket } from '@store/basket';
+import {
+  addToBasket,
+  decreaseQuantity,
+  getGoodsInBasket,
+  increaseQuantity,
+  InitialStateType,
+} from '@store/basket';
 import { IProduct } from '@store/products/models';
 import { useUpdateLikesMutation } from '@store/users';
 
@@ -27,6 +33,8 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
 
   const currentUser = useAppSelector(state => state.user.user);
   const [updateUserList] = useUpdateLikesMutation();
+  const goodsInBasket = useAppSelector(getGoodsInBasket);
+  const [currentGood, setCurrentGood] = useState<InitialStateType>();
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
@@ -56,6 +64,12 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
   useEffect(() => {
     setFavoriteList(currentUser?.favoritesProducts);
   }, [favoriteList]);
+
+  useEffect(() => {
+    goodsInBasket.map((good: InitialStateType) => {
+      return setCurrentGood(good);
+    });
+  }, [goodsInBasket]);
 
   return (
     <div className="full-food-card">
@@ -118,15 +132,38 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
           </div>
         </div>
 
-        <button
-          onClick={() => {
-            addItemToCard();
-          }}
-          className="full-food-card__description__btn"
-          type="button"
-        >
-          Add to Cart
-        </button>
+        <div className="full-food-card__description__footer">
+          <div className="full-food-card__description__footer__btn-block">
+            <button
+              onClick={() => {
+                dispatch(decreaseQuantity(currentGood?.id));
+              }}
+              className="full-food-card__description__footer__btn-block__btn"
+              type="button"
+            >
+              -
+            </button>
+            <span>{currentGood?.quantity}</span>
+            <button
+              onClick={() => {
+                dispatch(increaseQuantity(currentGood?.id));
+              }}
+              className="full-food-card__description__footer__btn-block__btn"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+          <button
+            onClick={() => {
+              addItemToCard();
+            }}
+            className="full-food-card__description__footer__btn"
+            type="button"
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );
