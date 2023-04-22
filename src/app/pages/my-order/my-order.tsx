@@ -5,11 +5,14 @@ import { OrderCard } from '@components/ui-kit/order-card';
 import { OrderTitle } from '@components/ui-kit/order-title';
 import { useAppSelector } from '@core/hooks';
 import { getGoodsInBasket, InitialStateType } from '@store/basket';
+import { useCreateOrderMutation } from '@store/order';
 
 import './styles.scss';
 
 export const MyOrder: React.FC = () => {
   const goodsInBasket = useAppSelector(getGoodsInBasket);
+  const currentUser = useAppSelector(state => state.user.user);
+  const [order] = useCreateOrderMutation();
 
   const totalPrice = useMemo(
     () =>
@@ -18,6 +21,10 @@ export const MyOrder: React.FC = () => {
       }, 0),
     [goodsInBasket],
   );
+
+  const confirmOrder = async () => {
+    await order({ id: currentUser?.id, data: { data: goodsInBasket } });
+  };
 
   return (
     <div className="container">
@@ -31,7 +38,11 @@ export const MyOrder: React.FC = () => {
               })}
               <PromoCode />
               <TotalPrice totalPrice={totalPrice} />
-              <button type="button" className="my-order__container__btn">
+              <button
+                onClick={confirmOrder}
+                type="button"
+                className="my-order__container__btn"
+              >
                 CONFIRM ORDER
               </button>
             </>

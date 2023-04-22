@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import React, { useEffect, useState } from 'react';
 import React, { useEffect, useState } from 'react';
@@ -34,7 +35,7 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
   const currentUser = useAppSelector(state => state.user.user);
   const [updateUserList] = useUpdateLikesMutation();
   const goodsInBasket = useAppSelector(getGoodsInBasket);
-  const [currentGood, setCurrentGood] = useState<InitialStateType>();
+  const [currentGood, setCurrentGood] = useState<InitialStateType | any>();
   const [favoriteList, setFavoriteList] = useState(
     currentUser?.favoritesProducts,
   );
@@ -57,6 +58,12 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
     }
   };
 
+  const updateCurrentGoods = (goods: InitialStateType[]) => {
+    goods.map((good: InitialStateType) => {
+      return setCurrentGood(good);
+    });
+  };
+
   useEffect(() => {
     setFavoriteList(currentUser?.favoritesProducts);
   }, [likeToggle]);
@@ -66,10 +73,16 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
   }, [favoriteList]);
 
   useEffect(() => {
-    goodsInBasket.map((good: InitialStateType) => {
-      return setCurrentGood(good);
-    });
+    updateCurrentGoods(goodsInBasket);
+  }, [product]);
+
+  useEffect(() => {
+    updateCurrentGoods(goodsInBasket);
   }, [goodsInBasket]);
+
+  useEffect(() => {
+    updateCurrentGoods(goodsInBasket);
+  }, []);
 
   return (
     <div className="full-food-card">
@@ -135,6 +148,7 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
         <div className="full-food-card__description__footer">
           <div className="full-food-card__description__footer__btn-block">
             <button
+              disabled={!currentGood?.quantity}
               onClick={() => {
                 dispatch(decreaseQuantity(currentGood?.id));
               }}
@@ -145,6 +159,7 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
             </button>
             <span>{currentGood?.quantity}</span>
             <button
+              disabled={!currentGood?.quantity}
               onClick={() => {
                 dispatch(increaseQuantity(currentGood?.id));
               }}

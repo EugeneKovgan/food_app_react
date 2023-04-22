@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/es/storage';
 import { basketReducer } from './basket';
 import { couriersApi } from './couriers';
+import { orderApi } from './order';
 import { productsApi } from './products';
 import { authApi, userReducer } from './users';
 
@@ -25,9 +26,10 @@ const persistedReducer = persistReducer(persistConfig, userReducer);
 export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
-    user: persistedReducer,
     [productsApi.reducerPath]: productsApi.reducer,
     [couriersApi.reducerPath]: couriersApi.reducer,
+    [orderApi.reducerPath]: orderApi.reducer,
+    user: persistedReducer,
     basket: basketReducer,
   },
   middleware: getDefaultMiddleware => [
@@ -39,6 +41,7 @@ export const store = configureStore({
     authApi.middleware,
     productsApi.middleware,
     couriersApi.middleware,
+    orderApi.middleware,
   ],
 });
 
