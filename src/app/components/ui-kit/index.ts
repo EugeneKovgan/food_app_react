@@ -16,3 +16,4 @@ export * from './profile-block';
 export * from './payment-method';
 export * from './order-progress';
 export * from './empty-credit-card';
+export * from './full-food-card';

@@ -40,7 +40,7 @@ export const MyOrder: React.FC = () => {
               <Empty description={false} />
               <p>Basket is empty</p>
             </div>
-          )}{' '}
+          )}
         </div>
       </div>
     </div>

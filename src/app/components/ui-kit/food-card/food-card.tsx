@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import like_icon from 'assets/images/icons/favorite.svg';
@@ -15,9 +13,15 @@ import './styles.scss';
 type PropsType = {
   product: IProduct;
   key: string;
+  setFullCard: (value: boolean) => void;
+  setCurrentProduct: (product: IProduct) => void;
 };
 
-export const FoodCard: React.FC<PropsType> = ({ product }) => {
+export const FoodCard: React.FC<PropsType> = ({
+  product,
+  setFullCard,
+  setCurrentProduct,
+}) => {
   const currentUser = useAppSelector(state => state.user.user);
   const [updateUserList] = useUpdateLikesMutation();
   const [favoriteList, setFavoriteList] = useState(
@@ -32,33 +36,42 @@ export const FoodCard: React.FC<PropsType> = ({ product }) => {
     dispatch(addToBasket(product));
   };
 
-  const toggleLike = async () => {
+  const likeToggle = async () => {
     if (currentUser?.id && product?.id) {
       await updateUserList({
         id: currentUser?.id,
         data: { productId: product?.id },
       });
+      setCurrentProductLike(!currentProductLike);
     }
   };
 
   useEffect(() => {
     setFavoriteList(currentUser?.favoritesProducts);
-  }, [toggleLike]);
+  }, [likeToggle]);
 
   useEffect(() => {
     setFavoriteList(currentUser?.favoritesProducts);
   }, [favoriteList]);
 
+  const fullCardToggle = () => {
+    setFullCard(true);
+    setCurrentProduct(product);
+    console.log(true);
+  };
+
   return (
     <div className="food-card">
       <div className="food-card__img-block">
         <img
+          role="presentation"
           className="food-card__img-block__bg"
+          onClick={fullCardToggle}
           src={`${config.API_URL}/${product.picture?.path}`}
           alt="img"
         />
         <button
-          onClick={() => toggleLike()}
+          onClick={() => likeToggle()}
           type="button"
           className="food-card__img-block__like-block"
         >
