@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import cross_icon from 'assets/images/icons/close.svg';
 import like_icon from 'assets/images/icons/favorite.svg';
 import like_icon_fill from 'assets/images/icons/favorite-fill.svg';
+import start_icon from 'assets/images/icons/start.svg';
+import time_icon from 'assets/images/icons/time.svg';
 import { config } from '@core/config';
 import { useAppSelector } from '@core/hooks';
 import { addToBasket } from '@store/basket';
@@ -99,7 +101,14 @@ export const FullFoodCard: React.FC<PropsType> = ({ product, setFullCard }) => {
             {product.productCategory}
           </div>
           <div className="full-food-card__description__header__third-line">
-            ss
+            <div className="full-food-card__description__header__third-line__stars">
+              <img src={start_icon} alt="start_icon" />
+              {product.productFavoritesCounter}
+            </div>
+            <div className="full-food-card__description__header__third-line__time">
+              <img src={time_icon} alt="time_icon" />
+              {`${product.productCookingTime} min.`}
+            </div>
           </div>
         </div>
         <div className="full-food-card__description__about">
