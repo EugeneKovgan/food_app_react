@@ -29,7 +29,7 @@ export const authApi = createApi({
     updateUser: builder.mutation({
       query({ id, data }) {
         return {
-          url: `auth/update/${id}`,
+          url: `update/user/${id}`,
           method: 'PATCH',
           body: data,
         };
@@ -43,15 +43,15 @@ export const authApi = createApi({
         };
       },
     }),
-    // updateLikes: builder.mutation({
-    //   query(data) {
-    //     return {
-    //       url: `auth/profile/likes`,
-    //       method: 'PUT',
-    //       body: data,
-    //     };
-    //   },
-    // }),
+    updateLikes: builder.mutation({
+      query({ id, data }) {
+        return {
+          url: `update/likes/${id}`,
+          method: 'PATCH',
+          body: data,
+        };
+      },
+    }),
   }),
 });
 
@@ -61,4 +61,5 @@ export const {
   useGetCurrentUserMutation,
   useUpdateUserMutation,
   useRemoveUserMutation,
+  useUpdateLikesMutation,
 } = authApi;

@@ -10,7 +10,6 @@ export const ProfileBlock: React.FC = () => {
   const currentUser = useAppSelector(state => state.user.user);
 
   console.log(currentUser);
-  console.log(`current_user-id:${currentUser?.id}`);
 
   return (
     <div className="profile-block">
@@ -30,8 +29,8 @@ export const ProfileBlock: React.FC = () => {
 
         <div className="profile-block__description__main-block">
           <div className="profile-block__description__main-block__name">
-            {`${currentUser?.name ? currentUser?.name : ''} ${
-              currentUser?.surname ? currentUser?.surname : ''
+            {`${currentUser?.name ? currentUser?.name : 'New'} ${
+              currentUser?.surname ? currentUser?.surname : 'User'
             }`}
           </div>
           <div className="profile-block__description__main-block__email">
@@ -39,8 +38,6 @@ export const ProfileBlock: React.FC = () => {
           </div>
           <div className="profile-block__description__main-block__id">
             User ID: {currentUser?.userId}
-            <br />
-            User: {currentUser?.id}
           </div>
         </div>
       </div>

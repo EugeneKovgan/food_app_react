@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
     <div className="container">
       <div className="header">
         <div className="header__title">Let’s eat Quality food </div>
-        <NavLink to="profile/account">
+        <NavLink to="/profile/account">
           <img
             className="header__avatar"
             src={

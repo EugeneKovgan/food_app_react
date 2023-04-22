@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Empty } from 'antd';
-import { FoodCard, Loader } from '@components/ui-kit';
+import { FoodCard, FullFoodCard, Loader } from '@components/ui-kit';
 import { IProduct } from '@store/products/models';
 
 import './styles.scss';
@@ -11,7 +11,12 @@ type PropsType = {
 };
 
 export const FoodContainer: React.FC<PropsType> = ({ data, isLoading }) => {
-  return (
+  const [fullCard, setFullCard] = useState<boolean>(false);
+  const [currentProduct, setCurrentProduct] = useState<IProduct | any>();
+
+  return fullCard ? (
+    <FullFoodCard setFullCard={setFullCard} product={currentProduct} />
+  ) : (
     <div className="container">
       {isLoading ? (
         <Loader />
@@ -19,7 +24,14 @@ export const FoodContainer: React.FC<PropsType> = ({ data, isLoading }) => {
         <div className="food-container">
           {data.length > 0 ? (
             data.map((product: IProduct) => {
-              return <FoodCard product={product} key={product.id} />;
+              return (
+                <FoodCard
+                  product={product}
+                  key={product.id}
+                  setFullCard={setFullCard}
+                  setCurrentProduct={setCurrentProduct}
+                />
+              );
             })
           ) : (
             <div className="food-container__empty-search">

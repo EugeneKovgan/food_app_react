@@ -23,15 +23,6 @@ export const userSlice = createSlice({
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
-    // likeToggle: (state, action: PayloadAction<string>) => {
-    //   if (state.user) {
-    //     state.user.favoritesProducts.includes(action.payload)
-    //       ? state.user.favoritesProducts.filter(
-    //           (prod: string) => prod !== action.payload,
-    //         )
-    //       : state.user.favoritesProducts.push(action.payload);
-    //   }
-    // },
   },
 
   extraReducers: builder => {
