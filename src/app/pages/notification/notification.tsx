@@ -7,12 +7,13 @@ import {
   NotificationTitle,
 } from '@components/ui-kit';
 import { useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils';
 import { useGetAllCouriersQuery } from '@store/couriers';
 import { ICouriers } from '@store/couriers/models';
 
 import './styles.scss';
 
-export const Notification: React.FC = () => {
+const Notification: React.FC = () => {
   const { data, isLoading } = useGetAllCouriersQuery('couriers');
   const currentUser = useAppSelector(state => state.user.user);
   const [lastOrder, setLastOrder] = useState(0);
@@ -49,3 +50,5 @@ export const Notification: React.FC = () => {
     </>
   );
 };
+
+export const NotificationGuard = guard(Notification);

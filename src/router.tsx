@@ -3,25 +3,30 @@ import { createBrowserRouter } from 'react-router-dom';
 import { History } from '@pages/history';
 import {
   Account,
-  Favorite,
-  Home,
+  FavoriteGuard,
+  HomeGuard,
   Login,
-  MyOrder,
-  Notification,
-  PaymentBlock,
+  MyOrderGuard,
+  NotificationGuard,
+  PaymentBlockGuard,
   Registration,
 } from '@pages/index';
 import { AuthLayout, MainLayout, ProfileLayout } from './app/layouts';
+
+const props = {
+  canActivate: (user: any) => !!user,
+  redirect: '/auth',
+};
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: 'favorite', element: <Favorite /> },
-      { path: 'order', element: <MyOrder /> },
-      { path: 'notification', element: <Notification /> },
+      { index: true, element: <HomeGuard {...props} /> },
+      { path: 'favorite', element: <FavoriteGuard {...props} /> },
+      { path: 'order', element: <MyOrderGuard {...props} /> },
+      { path: 'notification', element: <NotificationGuard {...props} /> },
     ],
   },
   {
@@ -38,8 +43,8 @@ export const router = createBrowserRouter([
     path: 'profile/',
     element: <ProfileLayout />,
     children: [
-      { index: true, element: <PaymentBlock /> },
-      { path: 'payment', element: <PaymentBlock /> },
+      { index: true, element: <PaymentBlockGuard {...props} /> },
+      { path: 'payment', element: <PaymentBlockGuard {...props} /> },
       { path: 'account', element: <Account /> },
       { path: 'history', element: <History /> },
     ],

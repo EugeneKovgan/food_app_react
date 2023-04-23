@@ -8,13 +8,14 @@ import {
   Search,
 } from '@components/ui-kit';
 import { useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils';
 import { FoodContainer } from '@pages/food-container';
 import { useGetProductsQuery } from '@store/products';
 import { IProduct } from '@store/products/models';
 
 import './styles.scss';
 
-export const Favorite: React.FC = () => {
+const Favorite: React.FC = () => {
   const { data, isLoading, isSuccess } = useGetProductsQuery('products');
   const currentUser = useAppSelector(state => state.user.user);
   const [favoriteList, setFavoriteList] = useState(
@@ -73,3 +74,5 @@ export const Favorite: React.FC = () => {
     </div>
   );
 };
+
+export const FavoriteGuard = guard(Favorite);

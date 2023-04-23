@@ -5,12 +5,13 @@ import { PromoCode, TotalPrice } from '@components/ui-kit';
 import { OrderCard } from '@components/ui-kit/order-card';
 import { OrderTitle } from '@components/ui-kit/order-title';
 import { useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils';
 import { clearBasket, getGoodsInBasket, InitialStateType } from '@store/basket';
 import { useCreateOrderMutation } from '@store/order';
 
 import './styles.scss';
 
-export const MyOrder: React.FC = () => {
+const MyOrder: React.FC = () => {
   const goodsInBasket = useAppSelector<InitialStateType[]>(getGoodsInBasket);
   const currentUser = useAppSelector(state => state.user.user);
   const [order] = useCreateOrderMutation();
@@ -68,3 +69,5 @@ export const MyOrder: React.FC = () => {
     </div>
   );
 };
+
+export const MyOrderGuard = guard(MyOrder);

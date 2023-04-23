@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Filter, Header, Search } from '@components/ui-kit';
+import { guard } from '@core/utils';
 import { FoodContainer } from '@pages/food-container';
 import { useGetProductsQuery } from '@store/products';
 import { IProduct } from '@store/products/models';
 
 import './styles.scss';
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const { data, isLoading, isSuccess } = useGetProductsQuery('products');
   const [btnFilter, setBtnFilter] = useState<string>('');
   const [search, setSearch] = useState<string>('');
@@ -51,3 +52,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export const HomeGuard = guard(Home);

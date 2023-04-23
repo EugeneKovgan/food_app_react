@@ -3,10 +3,11 @@ import React from 'react';
 import { EmptyCreditCard, PaymentMethod } from '@components/ui-kit';
 import { CreditCard } from '@components/ui-kit/credit-card';
 import { useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils';
 
 import './styles.scss';
 
-export const PaymentBlock: React.FC = () => {
+const PaymentBlock: React.FC = () => {
   const currentUser = useAppSelector(state => state.user.user);
 
   return (
@@ -28,3 +29,5 @@ export const PaymentBlock: React.FC = () => {
     </div>
   );
 };
+
+export const PaymentBlockGuard = guard(PaymentBlock);
