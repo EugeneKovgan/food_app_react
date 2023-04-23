@@ -5,7 +5,7 @@ export interface ICouriers {
   surname: string;
   email: number;
   phoneNumber: string;
-  address: string;
+  courierCity: string;
   deliveryTime: number;
   avatar: IAvatar;
 }

@@ -1,3 +1,5 @@
+import { InitialStateType } from '@store/basket';
+
 export interface IUserRequest {
   id: string;
   userId: string;
@@ -10,7 +12,7 @@ export interface IUserRequest {
   address: IAddress;
   cardNumber: string[];
   favoritesProducts: string[];
-  orders: any;
+  orderList: InitialStateType[] | [];
 }
 
 export interface IAvatar {

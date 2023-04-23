@@ -17,3 +17,4 @@ export * from './payment-method';
 export * from './empty-credit-card';
 export * from './full-food-card';
 export * from './order-progress';
+export * from './history-order';

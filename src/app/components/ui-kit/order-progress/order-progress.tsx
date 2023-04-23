@@ -1,5 +1,6 @@
 import React from 'react';
 import { Steps } from 'antd';
+import { InitialStateType } from '@store/basket';
 
 import './styles.scss';
 
@@ -21,7 +22,11 @@ const items = [
   },
 ];
 
-export const OrderProgress: React.FC<any> = ({ goodsInBasket }) => {
+type PropsType = {
+  goodsInBasket: InitialStateType[];
+};
+
+export const OrderProgress: React.FC<PropsType> = ({ goodsInBasket }) => {
   return goodsInBasket.length > 0 ? (
     <div className="order-progress">
       <div className="order-progress__title">Status of the current order</div>

@@ -5,15 +5,20 @@ import map_icon from 'assets/images/icons/map.svg';
 import clock_icon from 'assets/images/icons/time.svg';
 import { config } from '@core/config';
 import { ICouriers } from '@store/couriers/models';
+import { IAddress } from '@store/users/models';
 
 import './styles.scss';
 
 type PropsType = {
   courier: ICouriers;
   key: string;
+  customerAddress: IAddress;
 };
 
-export const NotificationCard: React.FC<PropsType> = ({ courier }) => {
+export const NotificationCard: React.FC<PropsType> = ({
+  courier,
+  customerAddress,
+}) => {
   return (
     <div className="container">
       <div className="notification-card">
@@ -75,7 +80,7 @@ export const NotificationCard: React.FC<PropsType> = ({ courier }) => {
                 Your Delivery Address
               </div>
               <div className="notification-card__footer__place__description__text">
-                {courier.address}
+                {`${customerAddress.city} ${customerAddress.street}`}
               </div>
             </div>
           </div>

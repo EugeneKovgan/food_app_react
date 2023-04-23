@@ -14,12 +14,6 @@ export const orderApi = createApi({
         };
       },
     }),
-    // getOrder: builder.query({
-    //   query: ({ id }) => ({
-    //     url: `order/get/${id}`,
-    //     method: 'GET',
-    //   }),
-    // }),
   }),
 });
 
