@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import filter_icon from 'assets/images/icons/filter.svg';
@@ -7,10 +7,22 @@ import filter_icon from 'assets/images/icons/filter.svg';
 import './styles.scss';
 
 type PropsType = {
+  search: string;
   setSearch: (value: string) => void;
 };
 
-export const Search: React.FC<PropsType> = ({ setSearch }) => {
+export const Search: React.FC<PropsType> = ({ search, setSearch }) => {
+  const clearSearch = () => {
+    setSearch('');
+  };
+
+  const onSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearch(event.target.value);
+    },
+    [],
+  );
+
   return (
     <div className="container">
       <div className="search">
@@ -19,9 +31,10 @@ export const Search: React.FC<PropsType> = ({ setSearch }) => {
           size="large"
           placeholder="Search food . . ."
           prefix={<SearchOutlined />}
-          onChange={e => setSearch(e.target.value)}
+          value={search}
+          onChange={onSearchChange}
         />
-        <button type="button" className="search__btn">
+        <button onClick={clearSearch} type="button" className="search__btn">
           <img src={filter_icon} alt="filter_icon" />
         </button>
       </div>

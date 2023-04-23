@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
   return (
     <div className="home-page">
       <Header />
-      <Search setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch} />
       <Filter setBtnFilter={setBtnFilter} />
       <FoodContainer data={filteredData} isLoading={isLoading} />
     </div>

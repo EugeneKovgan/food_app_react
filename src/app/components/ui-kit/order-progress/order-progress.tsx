@@ -1,7 +1,5 @@
 import React from 'react';
 import { Steps } from 'antd';
-import { useAppSelector } from '@core/hooks';
-import { getGoodsInBasket } from '@store/basket';
 
 import './styles.scss';
 
@@ -23,26 +21,20 @@ const items = [
   },
 ];
 
-export const OrderProgress: React.FC = () => {
-  const goodsInBasket = useAppSelector(getGoodsInBasket);
-
+export const OrderProgress: React.FC<any> = ({ goodsInBasket }) => {
   return goodsInBasket.length > 0 ? (
-    <div className="container">
-      <div className="order-progress">
-        <div className="order-progress__title">Status of the current order</div>
-        <div className="order-progress__block">
-          <Steps
-            current={0}
-            percent={100}
-            labelPlacement="vertical"
-            items={items}
-          />
-        </div>
+    <div className="order-progress">
+      <div className="order-progress__title">Status of the current order</div>
+      <div className="order-progress__block">
+        <Steps
+          current={0}
+          percent={100}
+          labelPlacement="vertical"
+          items={items}
+        />
       </div>
     </div>
   ) : (
-    <div className="container">
-      <div className="order-progress__title">Make an order</div>
-    </div>
+    <div className="order-progress__title">Make an order</div>
   );
 };

@@ -10,6 +10,7 @@ export interface IUserRequest {
   address: IAddress;
   cardNumber: string[];
   favoritesProducts: string[];
+  orders: any;
 }
 
 export interface IAvatar {

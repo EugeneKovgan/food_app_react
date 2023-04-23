@@ -8,19 +8,19 @@ export const orderApi = createApi({
     CreateOrder: builder.mutation({
       query({ id, data }) {
         return {
-          url: `order/create${id}`,
+          url: `order/create/${id}`,
           method: 'POST',
           body: data,
         };
       },
     }),
-    getOrder: builder.query({
-      query: ({ id }) => ({
-        url: `order/get${id}`,
-        method: 'GET',
-      }),
-    }),
+    // getOrder: builder.query({
+    //   query: ({ id }) => ({
+    //     url: `order/get/${id}`,
+    //     method: 'GET',
+    //   }),
+    // }),
   }),
 });
 
-export const { useCreateOrderMutation, useGetOrderQuery } = orderApi;
+export const { useCreateOrderMutation } = orderApi;

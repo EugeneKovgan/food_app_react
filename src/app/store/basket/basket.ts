@@ -64,11 +64,20 @@ const counterSlice = createSlice({
         return item.id !== action.payload;
       });
     },
+
+    clearBasket: () => {
+      return initialState;
+    },
   },
 });
 
-export const { addToBasket, increaseQuantity, decreaseQuantity, removeGoods } =
-  counterSlice.actions;
+export const {
+  addToBasket,
+  increaseQuantity,
+  decreaseQuantity,
+  removeGoods,
+  clearBasket,
+} = counterSlice.actions;
 export const basketReducer = counterSlice.reducer;
 
 export const store = configureStore({

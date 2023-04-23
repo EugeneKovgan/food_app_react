@@ -65,7 +65,7 @@ export const Favorite: React.FC = () => {
   return (
     <div className="favorite-page">
       <Header />
-      <Search setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch} />
       <Filter setBtnFilter={setBtnFilter} />
       <FreeDelivery />
       <FavoriteTitle />

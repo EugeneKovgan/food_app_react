@@ -1,18 +1,20 @@
 import React, { useMemo } from 'react';
-import { Empty } from 'antd';
+import { useDispatch } from 'react-redux';
+import { Empty, Modal } from 'antd';
 import { PromoCode, TotalPrice } from '@components/ui-kit';
 import { OrderCard } from '@components/ui-kit/order-card';
 import { OrderTitle } from '@components/ui-kit/order-title';
 import { useAppSelector } from '@core/hooks';
-import { getGoodsInBasket, InitialStateType } from '@store/basket';
+import { clearBasket, getGoodsInBasket, InitialStateType } from '@store/basket';
 import { useCreateOrderMutation } from '@store/order';
 
 import './styles.scss';
 
 export const MyOrder: React.FC = () => {
-  const goodsInBasket = useAppSelector(getGoodsInBasket);
+  const goodsInBasket = useAppSelector<InitialStateType[]>(getGoodsInBasket);
   const currentUser = useAppSelector(state => state.user.user);
   const [order] = useCreateOrderMutation();
+  const dispatch = useDispatch();
 
   const totalPrice = useMemo(
     () =>
@@ -22,8 +24,17 @@ export const MyOrder: React.FC = () => {
     [goodsInBasket],
   );
 
+  const infoMessage = () => {
+    Modal.info({
+      title: 'Info message',
+      content: 'Order was sended !',
+    });
+  };
+
   const confirmOrder = async () => {
     await order({ id: currentUser?.id, data: { data: goodsInBasket } });
+    dispatch(clearBasket());
+    infoMessage();
   };
 
   return (

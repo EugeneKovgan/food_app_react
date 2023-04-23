@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { OrderProgress } from '@components/ui-kit';
+import { History } from '@pages/history';
 import {
   Account,
   Favorite,
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
       { index: true, element: <PaymentBlock /> },
       { path: 'payment', element: <PaymentBlock /> },
       { path: 'account', element: <Account /> },
-      { path: 'history', element: <OrderProgress /> },
+      { path: 'history', element: <History /> },
     ],
   },
 ]);

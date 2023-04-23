@@ -13,11 +13,6 @@ import './styles.scss';
 
 export const Notification: React.FC = () => {
   const { data, isLoading } = useGetAllCouriersQuery('couriers');
-  // const [animation, setAnimation] = useState(false);
-
-  // useEffect(() => {
-  //   setAnimation(true);
-  // }, [data]);
 
   return (
     <>
@@ -25,13 +20,11 @@ export const Notification: React.FC = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        // <CSSTransition in={animation} timeout={500} classNames="my-node">
         <div className="notification">
           {data.map((courier: ICouriers) => {
             return <NotificationCard courier={courier} key={courier.id} />;
           })}
         </div>
-        // </CSSTransition>
       )}
     </>
   );
